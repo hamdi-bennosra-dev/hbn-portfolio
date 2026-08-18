@@ -1,1525 +1,2654 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hamdi Ben Nosra | Senior Full Stack Developer</title>
-<meta name="description" content="Portfolio of Hamdi Ben Nosra, Senior Full Stack Developer with 7+ years of experience in Java, Spring Boot, Vue.js, enterprise systems, fintech and SaaS.">
-<meta name="author" content="Hamdi Ben Nosra">
-<meta property="og:title" content="Hamdi Ben Nosra | Senior Full Stack Developer">
-<meta property="og:description" content="Enterprise-grade systems across fintech, government and SaaS. Java/Spring Boot, Vue.js, multi-database architecture.">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hamdi Ben Nosra | Senior Full Stack Developer</title>
+    <meta
+      name="description"
+      content="Portfolio of Hamdi Ben Nosra, Senior Full Stack Developer with 7+ years of experience in Java, Spring Boot, Vue.js, enterprise systems, fintech and SaaS."
+    />
+    <meta name="author" content="Hamdi Ben Nosra" />
+    <meta
+      property="og:title"
+      content="Hamdi Ben Nosra | Senior Full Stack Developer"
+    />
+    <meta
+      property="og:description"
+      content="Enterprise-grade systems across fintech, government and SaaS. Java/Spring Boot, Vue.js, multi-database architecture."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ---------- Reset ---------- */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button {
+        font: inherit;
+        color: inherit;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+      ul {
+        list-style: none;
+      }
+      svg {
+        display: block;
+      }
 
-/* ---------- Reset ---------- */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{-webkit-text-size-adjust:100%;}
-img{max-width:100%;display:block;}
-a{color:inherit;text-decoration:none;}
-button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;}
-ul{list-style:none;}
-svg{display:block;}
+      /* ---------- Design tokens ---------- */
+      :root {
+        --navy: #1e2c3d;
+        --navy-2: #2e4258;
+        --accent: #3d8ff5;
+        --accent-dark: #2a6fd1;
+        --bg: #ffffff;
+        --surface: #f5f6f8;
+        --surface-2: #ebeef2;
+        --text: #20242b;
+        --text-muted: #5b6572;
+        --text-faint: #8a93a0;
+        --border: #dee3e9;
+        --border-strong: #c7cfd8;
 
-/* ---------- Design tokens ---------- */
-:root{
-  --navy:#1E2C3D;
-  --navy-2:#2E4258;
-  --accent:#3D8FF5;
-  --accent-dark:#2A6FD1;
-  --bg:#FFFFFF;
-  --surface:#F5F6F8;
-  --surface-2:#EBEEF2;
-  --text:#20242B;
-  --text-muted:#5B6572;
-  --text-faint:#8A93A0;
-  --border:#DEE3E9;
-  --border-strong:#C7CFD8;
+        --font-display: "Space Grotesk", "IBM Plex Sans", system-ui, sans-serif;
+        --font-body: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+        --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
 
-  --font-display:'Space Grotesk', 'IBM Plex Sans', system-ui, sans-serif;
-  --font-body:'IBM Plex Sans', system-ui, -apple-system, sans-serif;
-  --font-mono:'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+        --container: 1180px;
+        --radius: 10px;
+        --radius-sm: 6px;
+        --shadow-sm: 0 1px 2px rgba(30, 44, 61, 0.06);
+        --shadow-md: 0 8px 24px -8px rgba(30, 44, 61, 0.18);
+        --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+      }
 
-  --container:1180px;
-  --radius:10px;
-  --radius-sm:6px;
-  --shadow-sm:0 1px 2px rgba(30,44,61,0.06);
-  --shadow-md:0 8px 24px -8px rgba(30,44,61,0.18);
-  --ease:cubic-bezier(.22,.61,.36,1);
-}
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
 
-@media (prefers-reduced-motion: reduce){
-  *,*::before,*::after{
-    animation-duration:0.01ms !important;
-    animation-iteration-count:1 !important;
-    transition-duration:0.01ms !important;
-    scroll-behavior:auto !important;
-  }
-}
+      html {
+        scroll-behavior: smooth;
+      }
 
-html{scroll-behavior:smooth;}
+      body {
+        font-family: var(--font-body);
+        color: var(--text);
+        background: var(--bg);
+        line-height: 1.55;
+        font-size: 16px;
+        -webkit-font-smoothing: antialiased;
+      }
 
-body{
-  font-family:var(--font-body);
-  color:var(--text);
-  background:var(--bg);
-  line-height:1.55;
-  font-size:16px;
-  -webkit-font-smoothing:antialiased;
-}
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-display);
+        font-weight: 600;
+        color: var(--navy);
+        line-height: 1.15;
+        letter-spacing: -0.01em;
+      }
 
-h1,h2,h3,h4{
-  font-family:var(--font-display);
-  font-weight:600;
-  color:var(--navy);
-  line-height:1.15;
-  letter-spacing:-0.01em;
-}
+      .container {
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 0 24px;
+      }
 
-.container{
-  max-width:var(--container);
-  margin:0 auto;
-  padding:0 24px;
-}
+      .eyebrow {
+        font-family: var(--font-mono);
+        font-size: 12.5px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent-dark);
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .eyebrow::before {
+        content: "";
+        width: 16px;
+        height: 1px;
+        background: var(--accent);
+        display: inline-block;
+      }
 
-.eyebrow{
-  font-family:var(--font-mono);
-  font-size:12.5px;
-  letter-spacing:0.14em;
-  text-transform:uppercase;
-  color:var(--accent-dark);
-  font-weight:500;
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-}
-.eyebrow::before{
-  content:"";
-  width:16px;
-  height:1px;
-  background:var(--accent);
-  display:inline-block;
-}
+      .section {
+        padding: 96px 0;
+        border-top: 1px solid var(--border);
+      }
+      .section-head {
+        max-width: 640px;
+        margin-bottom: 48px;
+      }
+      .section-head h2 {
+        font-size: clamp(28px, 4vw, 36px);
+        margin-top: 14px;
+      }
+      .section-head p {
+        color: var(--text-muted);
+        margin-top: 14px;
+        font-size: 16.5px;
+      }
 
-.section{
-  padding:96px 0;
-  border-top:1px solid var(--border);
-}
-.section-head{
-  max-width:640px;
-  margin-bottom:48px;
-}
-.section-head h2{
-  font-size:clamp(28px,4vw,36px);
-  margin-top:14px;
-}
-.section-head p{
-  color:var(--text-muted);
-  margin-top:14px;
-  font-size:16.5px;
-}
+      /* reveal on scroll */
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition:
+          opacity 0.7s var(--ease),
+          transform 0.7s var(--ease);
+      }
+      .reveal.is-visible {
+        opacity: 1;
+        transform: none;
+      }
 
-/* reveal on scroll */
-.reveal{
-  opacity:0;
-  transform:translateY(18px);
-  transition:opacity .7s var(--ease), transform .7s var(--ease);
-}
-.reveal.is-visible{
-  opacity:1;
-  transform:none;
-}
+      /* ---------- Buttons ---------- */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 13px 22px;
+        border-radius: var(--radius-sm);
+        font-size: 14.5px;
+        font-weight: 600;
+        font-family: var(--font-body);
+        transition:
+          transform 0.18s var(--ease),
+          box-shadow 0.18s var(--ease),
+          background 0.18s var(--ease),
+          border-color 0.18s var(--ease);
+        white-space: nowrap;
+      }
+      .btn svg {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+      }
+      .btn-primary {
+        background: var(--navy);
+        color: #fff;
+        box-shadow: var(--shadow-sm);
+      }
+      .btn-primary:hover {
+        background: #16212f;
+        box-shadow: var(--shadow-md);
+        transform: translateY(-1px);
+      }
+      .btn-accent {
+        background: var(--accent);
+        color: #fff;
+      }
+      .btn-accent:hover {
+        background: var(--accent-dark);
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-md);
+      }
+      .btn-ghost {
+        background: transparent;
+        color: var(--navy);
+        border: 1px solid var(--border-strong);
+      }
+      .btn-ghost:hover {
+        border-color: var(--navy);
+        background: var(--surface);
+      }
+      .btn:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
 
-/* ---------- Buttons ---------- */
-.btn{
-  display:inline-flex;
-  align-items:center;
-  gap:9px;
-  padding:13px 22px;
-  border-radius:var(--radius-sm);
-  font-size:14.5px;
-  font-weight:600;
-  font-family:var(--font-body);
-  transition:transform .18s var(--ease), box-shadow .18s var(--ease), background .18s var(--ease), border-color .18s var(--ease);
-  white-space:nowrap;
-}
-.btn svg{width:16px;height:16px;flex-shrink:0;}
-.btn-primary{
-  background:var(--navy);
-  color:#fff;
-  box-shadow:var(--shadow-sm);
-}
-.btn-primary:hover{background:#16212f;box-shadow:var(--shadow-md);transform:translateY(-1px);}
-.btn-accent{
-  background:var(--accent);
-  color:#fff;
-}
-.btn-accent:hover{background:var(--accent-dark);transform:translateY(-1px);box-shadow:var(--shadow-md);}
-.btn-ghost{
-  background:transparent;
-  color:var(--navy);
-  border:1px solid var(--border-strong);
-}
-.btn-ghost:hover{border-color:var(--navy);background:var(--surface);}
-.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+      /* ---------- Nav ---------- */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.88);
+        backdrop-filter: saturate(180%) blur(10px);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 68px;
+      }
+      .nav-mark {
+        font-family: var(--font-mono);
+        font-weight: 600;
+        font-size: 15px;
+        color: var(--navy);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        letter-spacing: 0.02em;
+      }
+      .nav-mark .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 0 3px rgba(61, 143, 245, 0.18);
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+      }
+      .nav-links a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-muted);
+        position: relative;
+        padding: 4px 0;
+        transition: color 0.15s;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--navy);
+      }
+      .nav-links a.active::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -3px;
+        height: 2px;
+        background: var(--accent);
+        border-radius: 2px;
+      }
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .nav-cv {
+        display: none;
+      }
+      .nav-toggle {
+        display: none;
+        width: 38px;
+        height: 38px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+      }
+      .nav-toggle:hover {
+        background: var(--surface);
+      }
+      .nav-toggle svg {
+        width: 20px;
+        height: 20px;
+      }
 
-/* ---------- Nav ---------- */
-.site-header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(255,255,255,0.88);
-  backdrop-filter:saturate(180%) blur(10px);
-  border-bottom:1px solid var(--border);
-}
-.nav{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  height:68px;
-}
-.nav-mark{
-  font-family:var(--font-mono);
-  font-weight:600;
-  font-size:15px;
-  color:var(--navy);
-  display:flex;
-  align-items:center;
-  gap:8px;
-  letter-spacing:0.02em;
-}
-.nav-mark .dot{
-  width:8px;height:8px;border-radius:50%;
-  background:var(--accent);
-  box-shadow:0 0 0 3px rgba(61,143,245,0.18);
-}
-.nav-links{
-  display:flex;
-  align-items:center;
-  gap:30px;
-}
-.nav-links a{
-  font-size:14px;
-  font-weight:500;
-  color:var(--text-muted);
-  position:relative;
-  padding:4px 0;
-  transition:color .15s;
-}
-.nav-links a:hover,.nav-links a.active{color:var(--navy);}
-.nav-links a.active::after{
-  content:"";
-  position:absolute;
-  left:0;right:0;bottom:-3px;
-  height:2px;
-  background:var(--accent);
-  border-radius:2px;
-}
-.nav-actions{display:flex;align-items:center;gap:14px;}
-.nav-cv{display:none;}
-.nav-toggle{
-  display:none;
-  width:38px;height:38px;
-  align-items:center;justify-content:center;
-  border-radius:8px;
-}
-.nav-toggle:hover{background:var(--surface);}
-.nav-toggle svg{width:20px;height:20px;}
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 68px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #ffffff;
+        opacity: 1;
+        z-index: 95;
+        padding: 28px 24px;
+        border-top: 1px solid var(--border);
+        overflow-y: auto;
+      }
+      .mobile-menu.open {
+        display: block;
+      }
+      .mobile-menu a {
+        display: block;
+        font-family: var(--font-display);
+        font-size: 24px;
+        font-weight: 600;
+        color: var(--navy);
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .mobile-menu .btn {
+        margin-top: 22px;
+        width: 100%;
+        justify-content: center;
+      }
 
-.mobile-menu{
-  display:none;
-  position:fixed;
-  top:68px;left:0;right:0;bottom:0;
-  background:#FFFFFF;
-  opacity:1;
-  z-index:95;
-  padding:28px 24px;
-  border-top:1px solid var(--border);
-  overflow-y:auto;
-}
-.mobile-menu.open{display:block;}
-.mobile-menu a{
-  display:block;
-  font-family:var(--font-display);
-  font-size:24px;
-  font-weight:600;
-  color:var(--navy);
-  padding:14px 0;
-  border-bottom:1px solid var(--border);
-}
-.mobile-menu .btn{margin-top:22px;width:100%;justify-content:center;}
+      @media (max-width: 860px) {
+        .nav-links {
+          display: none;
+        }
+        .nav-toggle {
+          display: flex;
+        }
+        .nav-actions .btn-accent {
+          display: none;
+        }
+      }
 
-@media (max-width:860px){
-  .nav-links{display:none;}
-  .nav-toggle{display:flex;}
-  .nav-actions .btn-accent{display:none;}
-}
+      /* ---------- Hero ---------- */
+      .hero {
+        padding: 76px 0 88px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-grid {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      .hero-kicker {
+        margin-bottom: 22px;
+      }
+      .hero h1 {
+        font-size: clamp(40px, 6vw, 64px);
+        letter-spacing: -0.02em;
+      }
+      .hero-role {
+        font-family: var(--font-mono);
+        color: var(--accent-dark);
+        font-size: clamp(16px, 2vw, 19px);
+        margin-top: 10px;
+        font-weight: 500;
+      }
+      .hero p.lede {
+        margin-top: 22px;
+        font-size: 18px;
+        color: var(--text-muted);
+        max-width: 52ch;
+      }
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 34px;
+      }
+      .hero-stats {
+        display: flex;
+        gap: 28px;
+        margin-top: 44px;
+        padding-top: 28px;
+        border-top: 1px solid var(--border);
+        font-family: var(--font-mono);
+        font-size: 13px;
+        color: var(--text-faint);
+        flex-wrap: wrap;
+      }
+      .hero-stats strong {
+        color: var(--navy);
+        font-weight: 600;
+      }
 
-/* ---------- Hero ---------- */
-.hero{
-  padding:76px 0 88px;
-  position:relative;
-  overflow:hidden;
-}
-.hero-grid{
-  display:grid;
-  grid-template-columns:1.05fr 0.95fr;
-  gap:56px;
-  align-items:center;
-}
-.hero-kicker{margin-bottom:22px;}
-.hero h1{
-  font-size:clamp(40px,6vw,64px);
-  letter-spacing:-0.02em;
-}
-.hero-role{
-  font-family:var(--font-mono);
-  color:var(--accent-dark);
-  font-size:clamp(16px,2vw,19px);
-  margin-top:10px;
-  font-weight:500;
-}
-.hero p.lede{
-  margin-top:22px;
-  font-size:18px;
-  color:var(--text-muted);
-  max-width:52ch;
-}
-.hero-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-top:34px;
-}
-.hero-stats{
-  display:flex;
-  gap:28px;
-  margin-top:44px;
-  padding-top:28px;
-  border-top:1px solid var(--border);
-  font-family:var(--font-mono);
-  font-size:13px;
-  color:var(--text-faint);
-  flex-wrap:wrap;
-}
-.hero-stats strong{
-  color:var(--navy);
-  font-weight:600;
-}
+      /* hero profile visual */
+      .hero-visual-wrap {
+        position: relative;
+      }
+      .hero-photo-full {
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-md);
+        background: var(--surface);
+      }
+      .hero-photo-full img {
+        width: 100%;
+        aspect-ratio: 4/5;
+        object-fit: cover;
+        object-position: center 18%;
+        display: block;
+      }
+      .hero-photo-circle {
+        display: none;
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4px solid #fff;
+        box-shadow: 0 10px 30px -8px rgba(30, 44, 61, 0.35);
+      }
+      .hero-photo-circle img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 18%;
+      }
+      .diagram-caption {
+        font-family: var(--font-mono);
+        font-size: 11.5px;
+        color: var(--text-faint);
+        text-align: center;
+        margin-top: 10px;
+        letter-spacing: 0.04em;
+      }
+      .carousel-diagram svg {
+        max-width: 420px;
+        margin: 0 auto;
+        display: block;
+      }
 
-/* signature diagram */
-.hero-diagram-wrap{
-  position:relative;
-}
-.diagram-caption{
-  font-family:var(--font-mono);
-  font-size:11.5px;
-  color:var(--text-faint);
-  text-align:center;
-  margin-top:10px;
-  letter-spacing:0.04em;
-}
+      @media (max-width: 960px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-visual-wrap {
+          order: -1;
+          max-width: 420px;
+          margin: 0 auto 16px;
+          display: flex;
+          justify-content: center;
+        }
+        .hero-photo-full {
+          display: none;
+        }
+        .hero-photo-circle {
+          display: block;
+        }
+      }
 
-@media (max-width:960px){
-  .hero-grid{grid-template-columns:1fr;}
-  .hero-diagram-wrap{order:-1;max-width:420px;margin:0 auto 8px;}
-}
+      /* ---------- About ---------- */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 60px;
+        align-items: start;
+      }
+      .about-subtitle {
+        font-size: clamp(24px, 3.2vw, 32px);
+        margin-bottom: 4px;
+      }
+      .about-grid p {
+        color: var(--text-muted);
+        font-size: 17px;
+        margin-bottom: 16px;
+      }
+      .about-grid p strong {
+        color: var(--navy);
+        font-weight: 600;
+      }
+      .fact-list {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+      }
+      .fact-row {
+        display: flex;
+        gap: 18px;
+        align-items: baseline;
+        padding: 18px 20px;
+        background: var(--surface);
+      }
+      .fact-row:nth-child(even) {
+        background: #fff;
+      }
+      .fact-row + .fact-row {
+        border-top: 1px solid var(--border);
+      }
+      .fact-num {
+        font-family: var(--font-mono);
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--accent-dark);
+        min-width: 64px;
+      }
+      .fact-label {
+        font-size: 14px;
+        color: var(--text-muted);
+      }
 
-/* ---------- About ---------- */
-.section-about{
-  padding-top:0;
-  overflow:hidden;
-}
-.about-cover{
-  position:relative;
-  min-height:280px;
-  display:flex;
-  align-items:flex-end;
-  margin-bottom:56px;
-}
-.about-cover-media{
-  position:absolute;
-  inset:0;
-  overflow:hidden;
-}
-.about-cover-media img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center 22%;
-  transform:scale(1.08);
-  filter:blur(22px) saturate(115%);
-}
-.about-cover-scrim{
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.72) 38%, rgba(255,255,255,0.94) 72%, #fff 100%),
-    linear-gradient(90deg, rgba(30,44,61,0.18) 0%, rgba(30,44,61,0.04) 55%, rgba(61,143,245,0.08) 100%);
-}
-.about-cover-inner{
-  position:relative;
-  z-index:2;
-  padding:72px 24px 36px;
-  width:100%;
-}
-.about-cover-eyebrow{color:#fff;text-shadow:0 1px 12px rgba(30,44,61,0.35);}
-.about-cover-eyebrow::before{background:rgba(255,255,255,0.85);}
-.about-cover-name{
-  font-size:clamp(36px,5.5vw,56px);
-  letter-spacing:-0.02em;
-  color:var(--navy);
-  margin-top:12px;
-  text-shadow:0 2px 24px rgba(255,255,255,0.85);
-}
-.about-cover-role{
-  font-family:var(--font-mono);
-  color:var(--accent-dark);
-  font-size:clamp(15px,2vw,18px);
-  margin-top:10px;
-  font-weight:500;
-  text-shadow:0 1px 16px rgba(255,255,255,0.9);
-}
-.about-grid{
-  display:grid;
-  grid-template-columns:1.2fr 1fr;
-  gap:60px;
-  align-items:start;
-}
-.about-subtitle{
-  font-size:clamp(24px,3.2vw,32px);
-  margin-bottom:4px;
-}
-.about-grid p{
-  color:var(--text-muted);
-  font-size:17px;
-  margin-bottom:16px;
-}
-.about-grid p strong{color:var(--navy);font-weight:600;}
-.fact-list{
-  display:flex;
-  flex-direction:column;
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  overflow:hidden;
-}
-.fact-row{
-  display:flex;
-  gap:18px;
-  align-items:baseline;
-  padding:18px 20px;
-  background:var(--surface);
-}
-.fact-row:nth-child(even){background:#fff;}
-.fact-row + .fact-row{border-top:1px solid var(--border);}
-.fact-num{
-  font-family:var(--font-mono);
-  font-size:22px;
-  font-weight:600;
-  color:var(--accent-dark);
-  min-width:64px;
-}
-.fact-label{font-size:14px;color:var(--text-muted);}
+      @media (max-width: 860px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+      }
 
-@media (max-width:860px){
-  .about-grid{grid-template-columns:1fr;}
-}
+      /* about charts carousel */
+      .about-carousel {
+        margin-top: 56px;
+      }
+      .about-carousel-head {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 22px;
+        flex-wrap: wrap;
+      }
+      .about-carousel-head h3 {
+        font-size: 20px;
+        margin-top: 8px;
+      }
+      .about-carousel-head p {
+        color: var(--text-muted);
+        font-size: 14.5px;
+        margin-top: 6px;
+        max-width: 48ch;
+      }
+      .carousel-controls {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .carousel-btn {
+        width: 38px;
+        height: 38px;
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--border-strong);
+        background: #fff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--navy);
+        transition:
+          background 0.18s var(--ease),
+          border-color 0.18s var(--ease),
+          transform 0.18s var(--ease);
+      }
+      .carousel-btn:hover {
+        background: var(--surface);
+        border-color: var(--navy);
+      }
+      .carousel-btn:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+      .carousel-btn svg {
+        width: 16px;
+        height: 16px;
+      }
+      .carousel-dots {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        margin-top: 16px;
+      }
+      .carousel-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--border-strong);
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+      .carousel-dot.is-active {
+        background: var(--accent);
+        transform: scale(1.15);
+      }
+      .carousel-viewport {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: var(--surface);
+        overflow: hidden;
+      }
+      .carousel-track {
+        display: flex;
+        transition: transform 0.55s var(--ease);
+      }
+      .carousel-slide {
+        min-width: 100%;
+        padding: 28px 28px 24px;
+      }
+      .chart-card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        padding: 22px 22px 18px;
+      }
+      .chart-card-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 18px;
+        flex-wrap: wrap;
+      }
+      .chart-card-head h4 {
+        font-size: 15px;
+        font-weight: 600;
+      }
+      .chart-card-head span {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--text-faint);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
 
+      .chart-card-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .chart-legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 14px;
+        font-size: 12.5px;
+        color: var(--text-muted);
+      }
+      .chart-legend-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .chart-legend-item i {
+        width: 10px;
+        height: 10px;
+        border-radius: 2px;
+        display: inline-block;
+      }
+      .chart-note {
+        margin-top: 12px;
+        font-size: 12.5px;
+        color: var(--text-faint);
+        font-family: var(--font-mono);
+      }
 
-/* about charts carousel */
-.about-carousel{
-  margin-top:56px;
-}
-.about-carousel-head{
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:20px;
-  margin-bottom:22px;
-  flex-wrap:wrap;
-}
-.about-carousel-head h3{
-  font-size:20px;
-  margin-top:8px;
-}
-.about-carousel-head p{
-  color:var(--text-muted);
-  font-size:14.5px;
-  margin-top:6px;
-  max-width:48ch;
-}
-.carousel-controls{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-.carousel-btn{
-  width:38px;height:38px;
-  border-radius:var(--radius-sm);
-  border:1px solid var(--border-strong);
-  background:#fff;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  color:var(--navy);
-  transition:background .18s var(--ease), border-color .18s var(--ease), transform .18s var(--ease);
-}
-.carousel-btn:hover{background:var(--surface);border-color:var(--navy);}
-.carousel-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
-.carousel-btn svg{width:16px;height:16px;}
-.carousel-dots{
-  display:flex;
-  gap:8px;
-  justify-content:center;
-  margin-top:16px;
-}
-.carousel-dot{
-  width:8px;height:8px;
-  border-radius:50%;
-  background:var(--border-strong);
-  border:none;
-  padding:0;
-  cursor:pointer;
-  transition:background .2s, transform .2s;
-}
-.carousel-dot.is-active{background:var(--accent);transform:scale(1.15);}
-.carousel-viewport{
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  background:var(--surface);
-  overflow:hidden;
-}
-.carousel-track{
-  display:flex;
-  transition:transform .55s var(--ease);
-}
-.carousel-slide{
-  min-width:100%;
-  padding:28px 28px 24px;
-}
-.chart-card{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:var(--radius-sm);
-  padding:22px 22px 18px;
-}
-.chart-card-head{
-  display:flex;
-  align-items:baseline;
-  justify-content:space-between;
-  gap:12px;
-  margin-bottom:18px;
-  flex-wrap:wrap;
-}
-.chart-card-head h4{
-  font-size:15px;
-  font-weight:600;
-}
-.chart-card-head span{
-  font-family:var(--font-mono);
-  font-size:11px;
-  color:var(--text-faint);
-  letter-spacing:0.06em;
-  text-transform:uppercase;
-}
-.chart-legend{
-  display:flex;
-  flex-wrap:wrap;
-  gap:14px;
-  margin-top:14px;
-  font-size:12.5px;
-  color:var(--text-muted);
-}
-.chart-legend-item{
-  display:inline-flex;
-  align-items:center;
-  gap:7px;
-}
-.chart-legend-item i{
-  width:10px;height:10px;border-radius:2px;display:inline-block;
-}
-.chart-note{
-  margin-top:12px;
-  font-size:12.5px;
-  color:var(--text-faint);
-  font-family:var(--font-mono);
-}
+      @media (max-width: 860px) {
+        .carousel-slide {
+          padding: 20px 16px 16px;
+        }
+      }
 
-@media (max-width:860px){
-  .about-cover{min-height:240px;margin-bottom:44px;}
-  .about-cover-inner{padding:56px 24px 28px;}
-  .carousel-slide{padding:20px 16px 16px;}
-}
+      /* ---------- Achievements ---------- */
+      .achv-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        background: var(--border);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+      }
+      .achv-card {
+        background: #fff;
+        padding: 30px 24px;
+        transition: background 0.2s;
+      }
+      .achv-card:hover {
+        background: var(--surface);
+      }
+      .achv-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 9px;
+        background: var(--surface-2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        color: var(--navy-2);
+      }
+      .achv-icon svg {
+        width: 19px;
+        height: 19px;
+      }
+      .achv-metric {
+        font-family: var(--font-mono);
+        font-size: 26px;
+        font-weight: 600;
+        color: var(--navy);
+      }
+      .achv-title {
+        font-size: 14px;
+        font-weight: 600;
+        margin-top: 6px;
+        color: var(--navy);
+      }
+      .achv-desc {
+        font-size: 13.5px;
+        color: var(--text-muted);
+        margin-top: 10px;
+        line-height: 1.5;
+      }
 
-/* ---------- Achievements ---------- */
-.achv-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:1px;
-  background:var(--border);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  overflow:hidden;
-}
-.achv-card{
-  background:#fff;
-  padding:30px 24px;
-  transition:background .2s;
-}
-.achv-card:hover{background:var(--surface);}
-.achv-icon{
-  width:38px;height:38px;
-  border-radius:9px;
-  background:var(--surface-2);
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:20px;
-  color:var(--navy-2);
-}
-.achv-icon svg{width:19px;height:19px;}
-.achv-metric{
-  font-family:var(--font-mono);
-  font-size:26px;
-  font-weight:600;
-  color:var(--navy);
-}
-.achv-title{
-  font-size:14px;
-  font-weight:600;
-  margin-top:6px;
-  color:var(--navy);
-}
-.achv-desc{
-  font-size:13.5px;
-  color:var(--text-muted);
-  margin-top:10px;
-  line-height:1.5;
-}
+      @media (max-width: 860px) {
+        .achv-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 520px) {
+        .achv-grid {
+          grid-template-columns: 1fr;
+        }
+      }
 
-@media (max-width:860px){
-  .achv-grid{grid-template-columns:1fr 1fr;}
-}
-@media (max-width:520px){
-  .achv-grid{grid-template-columns:1fr;}
-}
+      /* ---------- Experience ---------- */
+      .timeline {
+        position: relative;
+      }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 140px;
+        top: 6px;
+        bottom: 6px;
+        width: 1px;
+        background: var(--border);
+      }
+      .tl-item {
+        display: grid;
+        grid-template-columns: 112px 1fr;
+        gap: 0 56px;
+        position: relative;
+        padding-bottom: 52px;
+      }
+      .tl-item:last-child {
+        padding-bottom: 0;
+      }
+      .tl-date {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--text-faint);
+        padding-top: 6px;
+        text-align: right;
+        line-height: 1.7;
+      }
+      .tl-date .current {
+        color: var(--accent-dark);
+        font-weight: 600;
+      }
+      .tl-dot {
+        position: absolute;
+        left: 134px;
+        top: 10px;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: #fff;
+        border: 2px solid var(--accent);
+        z-index: 2;
+      }
+      .tl-card {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 26px 28px;
+        background: #fff;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .tl-card:hover {
+        border-color: var(--border-strong);
+        box-shadow: var(--shadow-sm);
+      }
+      .tl-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 4px;
+      }
+      .tl-role {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--navy);
+        font-family: var(--font-display);
+      }
+      .tl-badge {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.05em;
+        color: var(--accent-dark);
+        background: rgba(61, 143, 245, 0.1);
+        padding: 3px 9px;
+        border-radius: 20px;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+      .tl-company {
+        color: var(--text-muted);
+        font-size: 14px;
+        margin-bottom: 14px;
+      }
+      .tl-company b {
+        color: var(--navy-2);
+        font-weight: 600;
+      }
+      .tl-desc {
+        font-size: 15px;
+        color: var(--text);
+        margin-bottom: 14px;
+        font-style: italic;
+        color: var(--text-muted);
+      }
+      .tl-highlights {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+      .tl-highlights li {
+        position: relative;
+        padding-left: 18px;
+        font-size: 14.5px;
+        color: var(--text);
+      }
+      .tl-highlights li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 6px;
+        height: 1.5px;
+        background: var(--accent);
+      }
+      .tl-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+      .tag {
+        font-family: var(--font-mono);
+        font-size: 11.5px;
+        color: var(--navy-2);
+        background: var(--surface);
+        border: 1px solid var(--border);
+        padding: 4px 9px;
+        border-radius: 5px;
+      }
 
-/* ---------- Experience ---------- */
-.timeline{
-  position:relative;
-}
-.timeline::before{
-  content:"";
-  position:absolute;
-  left:140px;
-  top:6px;bottom:6px;
-  width:1px;
-  background:var(--border);
-}
-.tl-item{
-  display:grid;
-  grid-template-columns:112px 1fr;
-  gap:0 56px;
-  position:relative;
-  padding-bottom:52px;
-}
-.tl-item:last-child{padding-bottom:0;}
-.tl-date{
-  font-family:var(--font-mono);
-  font-size:12px;
-  color:var(--text-faint);
-  padding-top:6px;
-  text-align:right;
-  line-height:1.7;
-}
-.tl-date .current{color:var(--accent-dark);font-weight:600;}
-.tl-dot{
-  position:absolute;
-  left:134px;
-  top:10px;
-  width:13px;height:13px;
-  border-radius:50%;
-  background:#fff;
-  border:2px solid var(--accent);
-  z-index:2;
-}
-.tl-card{
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:26px 28px;
-  background:#fff;
-  transition:border-color .2s, box-shadow .2s;
-}
-.tl-card:hover{border-color:var(--border-strong);box-shadow:var(--shadow-sm);}
-.tl-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-bottom:4px;
-}
-.tl-role{font-size:18px;font-weight:600;color:var(--navy);font-family:var(--font-display);}
-.tl-badge{
-  font-family:var(--font-mono);
-  font-size:11px;
-  letter-spacing:0.05em;
-  color:var(--accent-dark);
-  background:rgba(61,143,245,0.1);
-  padding:3px 9px;
-  border-radius:20px;
-  text-transform:uppercase;
-  font-weight:600;
-}
-.tl-company{
-  color:var(--text-muted);
-  font-size:14px;
-  margin-bottom:14px;
-}
-.tl-company b{color:var(--navy-2);font-weight:600;}
-.tl-desc{
-  font-size:15px;
-  color:var(--text);
-  margin-bottom:14px;
-  font-style:italic;
-  color:var(--text-muted);
-}
-.tl-highlights{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-  margin-bottom:16px;
-}
-.tl-highlights li{
-  position:relative;
-  padding-left:18px;
-  font-size:14.5px;
-  color:var(--text);
-}
-.tl-highlights li::before{
-  content:"";
-  position:absolute;
-  left:0;top:8px;
-  width:6px;height:1.5px;
-  background:var(--accent);
-}
-.tl-tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:7px;
-}
-.tag{
-  font-family:var(--font-mono);
-  font-size:11.5px;
-  color:var(--navy-2);
-  background:var(--surface);
-  border:1px solid var(--border);
-  padding:4px 9px;
-  border-radius:5px;
-}
+      @media (max-width: 700px) {
+        .timeline::before {
+          left: 0;
+          display: none;
+        }
+        .tl-item {
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+        .tl-dot {
+          display: none;
+        }
+        .tl-date {
+          text-align: left;
+          padding-top: 0;
+        }
+      }
 
-@media (max-width:700px){
-  .timeline::before{left:0;display:none;}
-  .tl-item{grid-template-columns:1fr;gap:10px;}
-  .tl-dot{display:none;}
-  .tl-date{text-align:left;padding-top:0;}
-}
+      /* ---------- Skills ---------- */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .skill-card {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 24px 24px 22px;
+        background: var(--surface);
+      }
+      .skill-card h3 {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--navy-2);
+        margin-bottom: 14px;
+        font-family: var(--font-mono);
+        font-weight: 600;
+      }
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .skill-tags .tag {
+        background: #fff;
+      }
+      .skill-note {
+        font-size: 12px;
+        color: var(--text-faint);
+        margin-top: 12px;
+        line-height: 1.5;
+      }
 
-/* ---------- Skills ---------- */
-.skills-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-.skill-card{
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:24px 24px 22px;
-  background:var(--surface);
-}
-.skill-card h3{
-  font-size:14px;
-  text-transform:uppercase;
-  letter-spacing:0.06em;
-  color:var(--navy-2);
-  margin-bottom:14px;
-  font-family:var(--font-mono);
-  font-weight:600;
-}
-.skill-tags{display:flex;flex-wrap:wrap;gap:8px;}
-.skill-tags .tag{background:#fff;}
-.skill-note{
-  font-size:12px;
-  color:var(--text-faint);
-  margin-top:12px;
-  line-height:1.5;
-}
+      @media (max-width: 900px) {
+        .skills-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 560px) {
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+      }
 
-@media (max-width:900px){
-  .skills-grid{grid-template-columns:1fr 1fr;}
-}
-@media (max-width:560px){
-  .skills-grid{grid-template-columns:1fr;}
-}
+      .meta-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 20px;
+      }
+      .meta-card {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 24px;
+      }
+      .meta-card h3 {
+        font-family: var(--font-mono);
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--text-faint);
+        margin-bottom: 14px;
+        font-weight: 600;
+      }
+      .edu-degree {
+        font-weight: 600;
+        color: var(--navy);
+        font-size: 15.5px;
+      }
+      .edu-school {
+        color: var(--text-muted);
+        font-size: 14px;
+        margin-top: 4px;
+      }
+      .edu-period {
+        font-family: var(--font-mono);
+        font-size: 12.5px;
+        color: var(--text-faint);
+        margin-top: 8px;
+      }
+      .lang-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 9px 0;
+        font-size: 14.5px;
+        border-bottom: 1px solid var(--border);
+      }
+      .lang-row:last-child {
+        border-bottom: none;
+      }
+      .lang-row span:last-child {
+        color: var(--text-faint);
+        font-family: var(--font-mono);
+        font-size: 12.5px;
+      }
 
-.meta-row{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-  margin-top:20px;
-}
-.meta-card{
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:24px;
-}
-.meta-card h3{
-  font-family:var(--font-mono);
-  font-size:13px;
-  text-transform:uppercase;
-  letter-spacing:0.06em;
-  color:var(--text-faint);
-  margin-bottom:14px;
-  font-weight:600;
-}
-.edu-degree{font-weight:600;color:var(--navy);font-size:15.5px;}
-.edu-school{color:var(--text-muted);font-size:14px;margin-top:4px;}
-.edu-period{font-family:var(--font-mono);font-size:12.5px;color:var(--text-faint);margin-top:8px;}
-.lang-row{
-  display:flex;
-  justify-content:space-between;
-  padding:9px 0;
-  font-size:14.5px;
-  border-bottom:1px solid var(--border);
-}
-.lang-row:last-child{border-bottom:none;}
-.lang-row span:last-child{color:var(--text-faint);font-family:var(--font-mono);font-size:12.5px;}
+      @media (max-width: 640px) {
+        .meta-row {
+          grid-template-columns: 1fr;
+        }
+      }
 
-@media (max-width:640px){
-  .meta-row{grid-template-columns:1fr;}
-}
+      /* ---------- Contact ---------- */
+      .contact-section {
+        background: var(--navy);
+        color: #fff;
+        border-top: none;
+      }
+      .contact-inner {
+        text-align: center;
+        max-width: 640px;
+        margin: 0 auto;
+      }
+      .contact-inner .eyebrow {
+        color: #8fbbf7;
+      }
+      .contact-inner .eyebrow::before {
+        background: #8fbbf7;
+      }
+      .contact-inner h2 {
+        color: #fff;
+        font-size: clamp(30px, 4.5vw, 42px);
+        margin-top: 16px;
+      }
+      .contact-inner p {
+        color: #b7c2d0;
+        margin-top: 16px;
+        font-size: 17px;
+      }
+      .contact-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+        margin-top: 38px;
+      }
+      .contact-actions .btn-ghost {
+        border-color: rgba(255, 255, 255, 0.25);
+        color: #fff;
+      }
+      .contact-actions .btn-ghost:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: #fff;
+      }
+      .contact-direct {
+        margin-top: 42px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
+        display: flex;
+        justify-content: center;
+        gap: 36px;
+        flex-wrap: wrap;
+        font-family: var(--font-mono);
+        font-size: 13.5px;
+        color: #9aa7b8;
+      }
+      .contact-direct a:hover {
+        color: #fff;
+      }
 
-/* ---------- Contact ---------- */
-.contact-section{
-  background:var(--navy);
-  color:#fff;
-  border-top:none;
-}
-.contact-inner{
-  text-align:center;
-  max-width:640px;
-  margin:0 auto;
-}
-.contact-inner .eyebrow{color:#8FBBF7;}
-.contact-inner .eyebrow::before{background:#8FBBF7;}
-.contact-inner h2{
-  color:#fff;
-  font-size:clamp(30px,4.5vw,42px);
-  margin-top:16px;
-}
-.contact-inner p{
-  color:#B7C2D0;
-  margin-top:16px;
-  font-size:17px;
-}
-.contact-actions{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:14px;
-  margin-top:38px;
-}
-.contact-actions .btn-ghost{
-  border-color:rgba(255,255,255,0.25);
-  color:#fff;
-}
-.contact-actions .btn-ghost:hover{
-  background:rgba(255,255,255,0.08);
-  border-color:#fff;
-}
-.contact-direct{
-  margin-top:42px;
-  padding-top:30px;
-  border-top:1px solid rgba(255,255,255,0.14);
-  display:flex;
-  justify-content:center;
-  gap:36px;
-  flex-wrap:wrap;
-  font-family:var(--font-mono);
-  font-size:13.5px;
-  color:#9AA7B8;
-}
-.contact-direct a:hover{color:#fff;}
+      /* ---------- Footer ---------- */
+      .site-footer {
+        padding: 32px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 13px;
+        color: var(--text-faint);
+        background: var(--navy);
+        color: #7b8798;
+      }
+      .site-footer .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 100%;
+      }
+      .footer-comment {
+        font-family: var(--font-mono);
+        font-size: 12px;
+      }
 
-/* ---------- Footer ---------- */
-.site-footer{
-  padding:32px 0;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:10px;
-  font-size:13px;
-  color:var(--text-faint);
-  background:var(--navy);
-  color:#7B8798;
-}
-.site-footer .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;width:100%;}
-.footer-comment{font-family:var(--font-mono);font-size:12px;}
+      /* visually-hidden util */
+      .vh {
+        position: absolute !important;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+      }
 
-/* visually-hidden util */
-.vh{
-  position:absolute !important;
-  width:1px;height:1px;
-  overflow:hidden;
-  clip:rect(0 0 0 0);
-  white-space:nowrap;
-}
+      /* focus visibility globally */
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#main" class="vh">Skip to content</a>
 
-/* focus visibility globally */
-a:focus-visible, button:focus-visible{
-  outline:2px solid var(--accent);
-  outline-offset:2px;
-}
-</style>
-</head>
-<body>
-
-<a href="#main" class="vh">Skip to content</a>
-
-<header class="site-header">
-  <div class="container nav">
-    <a href="#" class="nav-mark" aria-label="Hamdi Ben Nosra, home">
-      <span class="dot" aria-hidden="true"></span>HN<span class="vh">Hamdi Ben Nosra</span>
-    </a>
-    <nav class="nav-links" aria-label="Primary">
+    <header class="site-header">
+      <div class="container nav">
+        <a href="#" class="nav-mark" aria-label="Hamdi Ben Nosra, home">
+          <span class="dot" aria-hidden="true"></span>HN<span class="vh"
+            >Hamdi Ben Nosra</span
+          >
+        </a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#achievements">Achievements</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="nav-actions">
+          <a
+            class="btn btn-accent"
+            id="cv-btn-nav"
+            href="HBN%20-%20CV.pdf"
+            download="HBN - CV.pdf"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 3v12" />
+              <path d="m7 10 5 5 5-5" />
+              <path d="M5 21h14" />
+            </svg>
+            Download CV
+          </a>
+          <button
+            class="nav-toggle"
+            id="nav-toggle"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            >
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="mobile-menu" id="mobile-menu">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#achievements">Achievements</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
-    </nav>
-    <div class="nav-actions">
-      <a class="btn btn-accent" id="cv-btn-nav" href="HBN%20-%20CV.pdf" download="HBN - CV.pdf">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
-        Download CV
-      </a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
+      <a class="btn btn-accent" href="HBN%20-%20CV.pdf" download="HBN - CV.pdf"
+        >Download CV</a
+      >
     </div>
-  </div>
-</header>
-<div class="mobile-menu" id="mobile-menu">
-  <a href="#about">About</a>
-  <a href="#experience">Experience</a>
-  <a href="#achievements">Achievements</a>
-  <a href="#skills">Skills</a>
-  <a href="#contact">Contact</a>
-  <a class="btn btn-accent" href="HBN%20-%20CV.pdf" download="HBN - CV.pdf">Download CV</a>
-</div>
 
-<main id="main">
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="reveal is-visible">
-        <p class="eyebrow">Senior Full Stack Developer</p>
-        <h1>Hamdi Ben&nbsp;Nosra</h1>
-        <p class="hero-role">Java / Spring&nbsp;Boot &middot; Vue.js &middot; Enterprise &amp; Fintech Systems</p>
-        <p class="lede">I design and build the backend architecture enterprise platforms run on &mdash; multi-database systems, workflow engines and SaaS applications, for banks, government agencies and fintech teams.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#contact">
-            Get in touch
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/hamdi-ben-nosra" target="_blank" rel="noopener noreferrer">
-            LinkedIn
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
-          </a>
-          <a class="btn btn-ghost" id="cv-btn-hero" href="HBN%20-%20CV.pdf" download="HBN - CV.pdf">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
-            CV (PDF)
-          </a>
-        </div>
-        <div class="hero-stats">
-          <span><strong>7+</strong> years experience</span>
-          <span><strong>6</strong> engineering roles</span>
-          <span><strong>15+</strong> countries served</span>
-          <span><strong>Tunis</strong> based &middot; remote-friendly</span>
-        </div>
-      </div>
-
-      <div class="hero-diagram-wrap reveal is-visible">
-        <svg viewBox="0 0 420 340" width="100%" role="img" aria-labelledby="diagramTitle">
-          <title id="diagramTitle">Diagram: Oracle, MSSQL and PostgreSQL converging into one portable codebase, powering enterprise clients</title>
-          <defs>
-            <linearGradient id="lineFade" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="#3D8FF5" stop-opacity="0.15"/>
-              <stop offset="1" stop-color="#3D8FF5" stop-opacity="0.65"/>
-            </linearGradient>
-          </defs>
-          <!-- connecting lines -->
-          <path d="M78 76 C 150 76, 150 168, 208 168" stroke="url(#lineFade)" stroke-width="1.5" fill="none"/>
-          <path d="M78 168 C 150 168, 150 168, 208 168" stroke="url(#lineFade)" stroke-width="1.5" fill="none"/>
-          <path d="M78 260 C 150 260, 150 168, 208 168" stroke="url(#lineFade)" stroke-width="1.5" fill="none"/>
-          <path d="M248 168 L 340 168" stroke="#1E2C3D" stroke-width="1.5"/>
-          <path d="M340 168 L 320 156" stroke="#1E2C3D" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M340 168 L 320 180" stroke="#1E2C3D" stroke-width="1.5" stroke-linecap="round"/>
-
-          <!-- db nodes -->
-          <g font-family="IBM Plex Mono, monospace" font-size="11">
-            <circle cx="60" cy="76" r="18" fill="#fff" stroke="#C7CFD8"/>
-            <text x="60" y="80" text-anchor="middle" fill="#2E4258" font-weight="600">OR</text>
-            <text x="60" y="106" text-anchor="middle" fill="#8A93A0" font-size="10">Oracle</text>
-
-            <circle cx="60" cy="168" r="18" fill="#fff" stroke="#C7CFD8"/>
-            <text x="60" y="172" text-anchor="middle" fill="#2E4258" font-weight="600">MS</text>
-            <text x="60" y="198" text-anchor="middle" fill="#8A93A0" font-size="10">MSSQL</text>
-
-            <circle cx="60" cy="260" r="18" fill="#fff" stroke="#C7CFD8"/>
-            <text x="60" y="264" text-anchor="middle" fill="#2E4258" font-weight="600">PG</text>
-            <text x="60" y="290" text-anchor="middle" fill="#8A93A0" font-size="10">PostgreSQL</text>
-
-            <!-- central node -->
-            <rect x="208" y="138" width="90" height="60" rx="8" fill="#1E2C3D"/>
-            <text x="253" y="164" text-anchor="middle" fill="#fff" font-weight="600" font-size="11">SINGLE</text>
-            <text x="253" y="180" text-anchor="middle" fill="#fff" font-weight="600" font-size="11">CODEBASE</text>
-
-            <!-- output node -->
-            <rect x="346" y="146" width="64" height="44" rx="7" fill="#fff" stroke="#3D8FF5" stroke-width="1.5"/>
-            <text x="378" y="164" text-anchor="middle" fill="#2E4258" font-size="9.5" font-weight="600">CLIENT</text>
-            <text x="378" y="178" text-anchor="middle" fill="#2E4258" font-size="9.5" font-weight="600">A&nbsp;&mdash;&nbsp;N</text>
-          </g>
-        </svg>
-        <p class="diagram-caption">// one Spring&nbsp;Boot / JPA codebase, three database engines</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="section section-about" id="about">
-    <div class="about-cover reveal">
-      <div class="about-cover-media" aria-hidden="true">
-        <img src="1773762403767.jpg" alt="">
-      </div>
-      <div class="about-cover-scrim" aria-hidden="true"></div>
-      <div class="container about-cover-inner">
-        <p class="eyebrow about-cover-eyebrow">About</p>
-        <h2 class="about-cover-name">Hamdi Ben&nbsp;Nosra</h2>
-        <p class="about-cover-role">Senior Full Stack Developer</p>
-      </div>
-    </div>
-    <div class="container">
-      <div class="about-grid">
-        <div class="reveal">
-          <h3 class="about-subtitle">Enterprise software, from data model to deployment.</h3>
-          <p>I'm a Senior Full Stack Developer based in Tunisia with <strong>7+ years</strong> building large-scale, enterprise-grade systems across fintech and government domains. My background is in <strong>Java and Spring Boot</strong> on the backend, paired with modern JavaScript frameworks on the front end &mdash; usually inside multi-tenant SaaS platforms that need to stay portable across different clients and infrastructures.</p>
-          <p>Recent work has centered on <strong>workflow-driven platforms</strong>: designing domain models, building multi-database strategies that keep a single codebase running across Oracle, MSSQL and PostgreSQL, and shipping the dynamic form builders that let non-technical teams configure their own processes. Alongside delivery, I've supervised engineering teams and mentored junior developers and interns.</p>
-        </div>
-        <div class="reveal">
-          <div class="fact-list">
-            <div class="fact-row">
-              <span class="fact-num">7+</span>
-              <span class="fact-label">Years shipping production systems in fintech, government and SaaS</span>
-            </div>
-            <div class="fact-row">
-              <span class="fact-num">15+</span>
-              <span class="fact-label">African countries served by a banking platform he helped build</span>
-            </div>
-            <div class="fact-row">
-              <span class="fact-num">4</span>
-              <span class="fact-label">Countries running the visa-processing CRM he delivered</span>
-            </div>
-            <div class="fact-row">
-              <span class="fact-num">7+</span>
-              <span class="fact-label">Junior developers and interns mentored</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="about-carousel reveal" aria-label="Career insights carousel">
-        <div class="about-carousel-head">
-          <div>
-            <p class="eyebrow">At a glance</p>
-            <h3>Career metrics &amp; technical footprint</h3>
-            <p>Key numbers drawn from production systems, delivery scope and the stack behind them.</p>
-          </div>
-          <div class="carousel-controls">
-            <button class="carousel-btn" type="button" id="carousel-prev" aria-label="Previous chart">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-            </button>
-            <button class="carousel-btn" type="button" id="carousel-next" aria-label="Next chart">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-            </button>
-          </div>
-        </div>
-        <div class="carousel-viewport">
-          <div class="carousel-track" id="carousel-track">
-
-            <article class="carousel-slide" aria-roledescription="slide" aria-label="1 of 4: Skills by domain">
-              <div class="chart-card">
-                <div class="chart-card-head">
-                  <h4>Core competency distribution</h4>
-                  <span>Relative depth</span>
-                </div>
-                <svg viewBox="0 0 520 200" width="100%" role="img" aria-label="Bar chart: Backend Engineering 92%, Data and Databases 88%, Cloud and Delivery 72%, Frontend Engineering 78%">
-                  <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#5B6572">
-                    <text x="148" y="34" text-anchor="end">Backend Engineering</text>
-                    <rect x="158" y="22" width="322" height="18" rx="4" fill="#EBEEF2"/><rect x="158" y="22" width="296" height="18" rx="4" fill="#3D8FF5"/>
-                    <text x="490" y="36" fill="#2A6FD1" font-weight="600">92%</text>
-
-                    <text x="148" y="74" text-anchor="end">Data &amp; Databases</text>
-                    <rect x="158" y="62" width="322" height="18" rx="4" fill="#EBEEF2"/><rect x="158" y="62" width="283" height="18" rx="4" fill="#2E4258"/>
-                    <text x="490" y="76" fill="#1E2C3D" font-weight="600">88%</text>
-
-                    <text x="148" y="114" text-anchor="end">Cloud &amp; Delivery</text>
-                    <rect x="158" y="102" width="322" height="18" rx="4" fill="#EBEEF2"/><rect x="158" y="102" width="232" height="18" rx="4" fill="#2E4258" opacity="0.8"/>
-                    <text x="490" y="116" fill="#1E2C3D" font-weight="600">72%</text>
-
-                    <text x="148" y="154" text-anchor="end">Frontend Engineering</text>
-                    <rect x="158" y="142" width="322" height="18" rx="4" fill="#EBEEF2"/><rect x="158" y="142" width="251" height="18" rx="4" fill="#3D8FF5" opacity="0.55"/>
-                    <text x="490" y="156" fill="#2A6FD1" font-weight="600">78%</text>
-                  </g>
+    <main id="main">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="container">
+          <div class="reveal is-visible">
+            <p class="eyebrow">Senior Full Stack Developer</p>
+            <h1>Hamdi Ben&nbsp;Nosra</h1>
+            <p class="hero-role">
+              Java / Spring&nbsp;Boot &middot; JS/TS Frameworks &middot;
+              Enterprise &amp; Fintech Systems
+            </p>
+            <p class="lede">
+              I design and build the backend architecture enterprise platforms run on &mdash; multi-database systems, workflow engines and SaaS applications, for banks, government agencies and fintech teams.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">
+                Get in touch
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
                 </svg>
-                <p class="chart-note">// weighted by years in production across Java/Spring, JS/TS Frameworks, multi-DB and SaaS platforms</p>
-              </div>
-            </article>
-
-            <article class="carousel-slide" aria-roledescription="slide" aria-label="3 of 4: Experience by sector">
-              <div class="chart-card">
-                <div class="chart-card-head">
-                  <h4>Experience by sector</h4>
-                  <span>Years (approx.)</span>
-                </div>
-                <svg viewBox="0 0 520 230" width="100%" role="img" aria-label="Bar chart: SaaS and Enterprise 4.5 years, Fintech and Banking 3 years, Government and CRM 1.5 years, Mobile and Cloud 1 year">
-                  <line x1="170" y1="18" x2="170" y2="198" stroke="#DEE3E9"/>
-                  <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#5B6572">
-                    <text x="160" y="52" text-anchor="end">SaaS &amp; Enterprise</text>
-                    <rect x="170" y="38" width="270" height="20" rx="4" fill="#3D8FF5"/>
-                    <text x="450" y="52" fill="#2A6FD1" font-weight="600">4.5y</text>
-
-                    <text x="160" y="92" text-anchor="end">Fintech &amp; Banking</text>
-                    <rect x="170" y="78" width="180" height="20" rx="4" fill="#2E4258"/>
-                    <text x="450" y="92" fill="#1E2C3D" font-weight="600">3y</text>
-
-                    <text x="160" y="132" text-anchor="end">Government &amp; CRM</text>
-                    <rect x="170" y="118" width="90" height="20" rx="4" fill="#3D8FF5" opacity="0.65"/>
-                    <text x="450" y="132" fill="#2A6FD1" font-weight="600">1.5y</text>
-
-                    <text x="160" y="172" text-anchor="end">Mobile &amp; Cloud</text>
-                    <rect x="170" y="158" width="60" height="20" rx="4" fill="#2E4258" opacity="0.75"/>
-                    <text x="450" y="172" fill="#1E2C3D" font-weight="600">1y</text>
-                  </g>
+              </a>
+              <a
+                class="btn btn-ghost"
+                href="https://www.linkedin.com/in/hamdi-ben-nosra"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                  />
+                  <path d="M15 3h6v6" />
+                  <path d="M10 14 21 3" />
                 </svg>
-                <div class="chart-legend">
-                  <span class="chart-legend-item"><i style="background:#3D8FF5"></i> Workflow / SaaS platforms</span>
-                  <span class="chart-legend-item"><i style="background:#2E4258"></i> Regulated finance &amp; infra</span>
+              </a>
+              <a
+                class="btn btn-ghost"
+                id="cv-btn-hero"
+                href="HBN%20-%20CV.pdf"
+                download="HBN - CV.pdf"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 3v12" />
+                  <path d="m7 10 5 5 5-5" />
+                  <path d="M5 21h14" />
+                </svg>
+                CV (PDF)
+              </a>
+            </div>
+            <div class="hero-stats">
+              <span><strong>7+</strong> years experience</span>
+              <span><strong>6</strong> engineering roles</span>
+              <span><strong>15+</strong> countries served</span>
+              <span><strong>Tunis</strong> based &middot; remote-friendly</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="section" id="about">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow about-cover-eyebrow">About</p>
+            <h2 class="about-cover-name">Hamdi Ben&nbsp;Nosra</h2>
+            <p class="about-cover-role">Senior Full Stack Developer</p>
+          </div>
+          <div class="about-grid reveal">
+            <div class="reveal">
+              <h3 class="about-subtitle">
+                Enterprise software, from data model to deployment.
+              </h3>
+              <p>
+                I'm a Senior Full Stack Developer based in Tunisia with
+                <strong>7+ years</strong> building large-scale, enterprise-grade
+                systems across fintech and government domains. My background is
+                in <strong>Java and Spring Boot</strong> on the backend, paired
+                with modern JavaScript frameworks on the front end &mdash;
+                usually inside multi-tenant SaaS platforms that need to stay
+                portable across different clients and infrastructures.
+              </p>
+              <p>
+                Recent work has centered on
+                <strong>workflow-driven platforms</strong>: designing domain
+                models, building multi-database strategies that keep a single
+                codebase running across Oracle, MSSQL and PostgreSQL, and
+                shipping the dynamic form builders that let non-technical teams
+                configure their own processes. Alongside delivery, I've
+                supervised engineering teams and mentored junior developers and
+                interns.
+              </p>
+            </div>
+            <div class="reveal">
+              <div class="fact-list">
+                <div class="fact-row">
+                  <span class="fact-num">7+</span>
+                  <span class="fact-label"
+                    >Years shipping production systems in fintech, government
+                    and SaaS</span
+                  >
+                </div>
+                <div class="fact-row">
+                  <span class="fact-num">15+</span>
+                  <span class="fact-label"
+                    >African countries served by a banking platform he helped
+                    build</span
+                  >
+                </div>
+                <div class="fact-row">
+                  <span class="fact-num">4</span>
+                  <span class="fact-label"
+                    >Countries running the visa-processing CRM he
+                    delivered</span
+                  >
+                </div>
+                <div class="fact-row">
+                  <span class="fact-num">7+</span>
+                  <span class="fact-label"
+                    >Junior developers and interns mentored</span
+                  >
                 </div>
               </div>
-            </article>
+            </div>
+          </div>
 
-            <article class="carousel-slide" aria-roledescription="slide" aria-label="4 of 4: Multi-database architecture">
-              <div class="chart-card">
-                <div class="chart-card-head">
-                  <h4>Multi-database portability</h4>
-                  <span>One codebase</span>
-                </div>
-                <svg viewBox="0 0 520 230" width="100%" role="img" aria-label="Donut chart: Oracle, MSSQL and PostgreSQL each supporting a unified Spring Boot codebase">
-                  <circle cx="175" cy="118" r="72" fill="none" stroke="#EBEEF2" stroke-width="22"/>
-                  <circle cx="175" cy="118" r="72" fill="none" stroke="#3D8FF5" stroke-width="22" stroke-dasharray="150.8 301.6" transform="rotate(-90 175 118)"/>
-                  <circle cx="175" cy="118" r="72" fill="none" stroke="#2E4258" stroke-width="22" stroke-dasharray="150.8 301.6" stroke-dashoffset="-150.8" transform="rotate(-90 175 118)"/>
-                  <circle cx="175" cy="118" r="72" fill="none" stroke="#3D8FF5" stroke-width="22" stroke-dasharray="150.8 301.6" stroke-dashoffset="-301.6" opacity="0.55" transform="rotate(-90 175 118)"/>
-                  <text x="175" y="114" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="22" font-weight="600" fill="#1E2C3D">3-in-1</text>
-                  <text x="175" y="136" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#8A93A0">DB ENGINES</text>
-                  <g font-family="IBM Plex Mono, monospace" font-size="12" fill="#5B6572">
-                    <circle cx="330" cy="78" r="5" fill="#3D8FF5"/><text x="344" y="82">Oracle</text>
-                    <circle cx="330" cy="118" r="5" fill="#2E4258"/><text x="344" y="122">Microsoft SQL Server</text>
-                    <circle cx="330" cy="158" r="5" fill="#3D8FF5" opacity="0.55"/><text x="344" y="162">PostgreSQL</text>
-                  </g>
-                </svg>
-                <p class="chart-note">// signature architecture from Intalio CTS and enterprise client portability work</p>
+          <div
+            class="about-carousel reveal"
+            aria-label="Career insights carousel"
+          >
+            <div class="about-carousel-head">
+              <div>
+                <p class="eyebrow">At a glance</p>
+                <h3>Career metrics &amp; technical footprint</h3>
+                <p>
+                  Key numbers drawn from production systems, delivery scope and
+                  the stack behind them.
+                </p>
               </div>
-            </article>
-
-          </div>
-        </div>
-        <div class="carousel-dots" id="carousel-dots" aria-hidden="true"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ACHIEVEMENTS -->
-  <section class="section" id="achievements">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">Key Achievements</p>
-        <h2>What that experience has actually produced.</h2>
-      </div>
-      <div class="achv-grid reveal">
-        <div class="achv-card">
-          <div class="achv-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg>
-          </div>
-          <div class="achv-metric">3-in-1</div>
-          <div class="achv-title">Multi-database portability</div>
-          <p class="achv-desc">Built a unified codebase compatible with Oracle, Microsoft SQL Server and PostgreSQL, so one platform could serve every enterprise client.</p>
-        </div>
-        <div class="achv-card">
-          <div class="achv-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><path d="M10 6.5h4M17.5 10v4"/></svg>
-          </div>
-          <div class="achv-metric">Metadata&#8209;driven</div>
-          <div class="achv-title">Workflow digitization</div>
-          <p class="achv-desc">Built a dynamic, metadata-driven form engine that cut down how long it took to deploy new business processes.</p>
-        </div>
-        <div class="achv-card">
-          <div class="achv-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <div class="achv-metric">7+</div>
-          <div class="achv-title">Mentorship</div>
-          <p class="achv-desc">Supervised a team of junior developers and personally mentored seven interns at Talys Consulting.</p>
-        </div>
-        <div class="achv-card">
-          <div class="achv-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-          </div>
-          <div class="achv-metric">40%</div>
-          <div class="achv-title">Faster load times</div>
-          <p class="achv-desc">Optimized database queries and caching strategy to cut page and process load times by 40%.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section class="section" id="experience">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">Experience</p>
-        <h2>Six roles, one throughline: enterprise systems that have to work.</h2>
-        <p>From Android monitoring tools to core banking modules to the SaaS platform he leads today.</p>
-      </div>
-
-      <div class="timeline reveal">
-
-        <div class="tl-item">
-          <div class="tl-date">12/2024<br><span class="current">Present</span></div>
-          <div class="tl-dot" aria-hidden="true"></div>
-          <div class="tl-card">
-            <div class="tl-head">
-              <span class="tl-role">Technical Lead / Sr. Full Stack Developer</span>
-              <span class="tl-badge">Current</span>
+              <div class="carousel-controls">
+                <button
+                  class="carousel-btn"
+                  type="button"
+                  id="carousel-prev"
+                  aria-label="Previous chart"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="m15 18-6-6 6-6" />
+                  </svg>
+                </button>
+                <button
+                  class="carousel-btn"
+                  type="button"
+                  id="carousel-next"
+                  aria-label="Next chart"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="m9 18 6-6-6-6" />
+                  </svg>
+                </button>
+              </div>
             </div>
-            <div class="tl-company"><b>Intalio</b> &middot; Remote</div>
-            <p class="tl-desc">Lead Developer for CTS, a microservices-based enterprise workflow multi-tenant SaaS platform centralizing official communications.</p>
-            <ul class="tl-highlights">
-              <li>Designed complex domains using Spring Boot, JPA and Hibernate.</li>
-              <li>Developed a multi-database strategy across Oracle, MSSQL and PostgreSQL to keep one codebase portable across enterprise clients.</li>
-              <li>Built dynamic UI form builders and workflows with Vue Composition API and Vuex.</li>
-            </ul>
-            <div class="tl-tags">
-              <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">JPA / Hibernate</span><span class="tag">Vue.js</span><span class="tag">Microservices</span><span class="tag">SaaS</span>
+            <div class="carousel-viewport">
+              <div class="carousel-track" id="carousel-track">
+                <article
+                  class="carousel-slide"
+                  aria-roledescription="slide"
+                  aria-label="1 of 4: Skills by domain"
+                >
+                  <div class="chart-card">
+                    <div class="chart-card-head">
+                      <h4>Core competency distribution</h4>
+                      <span>Relative depth</span>
+                    </div>
+                    <svg
+                      viewBox="0 0 520 200"
+                      width="100%"
+                      role="img"
+                      aria-label="Bar chart: Backend Engineering 92%, Data and Databases 88%, Cloud and Delivery 72%, Frontend Engineering 78%"
+                    >
+                      <g
+                        font-family="IBM Plex Mono, monospace"
+                        font-size="11"
+                        fill="#5B6572"
+                      >
+                        <text x="148" y="34" text-anchor="end">
+                          Backend Engineering
+                        </text>
+                        <rect
+                          x="158"
+                          y="22"
+                          width="322"
+                          height="18"
+                          rx="4"
+                          fill="#EBEEF2"
+                        />
+                        <rect
+                          x="158"
+                          y="22"
+                          width="296"
+                          height="18"
+                          rx="4"
+                          fill="#3D8FF5"
+                        />
+                        <text x="490" y="36" fill="#2A6FD1" font-weight="600">
+                          92%
+                        </text>
+
+                        <text x="148" y="74" text-anchor="end">
+                          Data &amp; Databases
+                        </text>
+                        <rect
+                          x="158"
+                          y="62"
+                          width="322"
+                          height="18"
+                          rx="4"
+                          fill="#EBEEF2"
+                        />
+                        <rect
+                          x="158"
+                          y="62"
+                          width="283"
+                          height="18"
+                          rx="4"
+                          fill="#2E4258"
+                        />
+                        <text x="490" y="76" fill="#1E2C3D" font-weight="600">
+                          88%
+                        </text>
+
+                        <text x="148" y="114" text-anchor="end">
+                          Cloud &amp; Delivery
+                        </text>
+                        <rect
+                          x="158"
+                          y="102"
+                          width="322"
+                          height="18"
+                          rx="4"
+                          fill="#EBEEF2"
+                        />
+                        <rect
+                          x="158"
+                          y="102"
+                          width="232"
+                          height="18"
+                          rx="4"
+                          fill="#2E4258"
+                          opacity="0.8"
+                        />
+                        <text x="490" y="116" fill="#1E2C3D" font-weight="600">
+                          72%
+                        </text>
+
+                        <text x="148" y="154" text-anchor="end">
+                          Frontend Engineering
+                        </text>
+                        <rect
+                          x="158"
+                          y="142"
+                          width="322"
+                          height="18"
+                          rx="4"
+                          fill="#EBEEF2"
+                        />
+                        <rect
+                          x="158"
+                          y="142"
+                          width="251"
+                          height="18"
+                          rx="4"
+                          fill="#3D8FF5"
+                          opacity="0.55"
+                        />
+                        <text x="490" y="156" fill="#2A6FD1" font-weight="600">
+                          78%
+                        </text>
+                      </g>
+                    </svg>
+                    <p class="chart-note">
+                      // weighted by years in production across Java/Spring,
+                      JS/TS Frameworks, multi-DB and SaaS platforms
+                    </p>
+                  </div>
+                </article>
+
+                <article
+                  class="carousel-slide"
+                  aria-roledescription="slide"
+                  aria-label="3 of 4: Experience by sector"
+                >
+                  <div class="chart-card">
+                    <div class="chart-card-head">
+                      <h4>Experience by sector</h4>
+                      <span>Years (approx.)</span>
+                    </div>
+                    <svg
+                      viewBox="0 0 520 230"
+                      width="100%"
+                      role="img"
+                      aria-label="Bar chart: SaaS and Enterprise 4.5 years, Fintech and Banking 3 years, Government and CRM 1.5 years, Mobile and Cloud 1 year"
+                    >
+                      <line
+                        x1="170"
+                        y1="18"
+                        x2="170"
+                        y2="198"
+                        stroke="#DEE3E9"
+                      />
+                      <g
+                        font-family="IBM Plex Mono, monospace"
+                        font-size="11"
+                        fill="#5B6572"
+                      >
+                        <text x="160" y="52" text-anchor="end">
+                          SaaS &amp; Enterprise
+                        </text>
+                        <rect
+                          x="170"
+                          y="38"
+                          width="270"
+                          height="20"
+                          rx="4"
+                          fill="#3D8FF5"
+                        />
+                        <text x="450" y="52" fill="#2A6FD1" font-weight="600">
+                          4.5y
+                        </text>
+
+                        <text x="160" y="92" text-anchor="end">
+                          Fintech &amp; Banking
+                        </text>
+                        <rect
+                          x="170"
+                          y="78"
+                          width="180"
+                          height="20"
+                          rx="4"
+                          fill="#2E4258"
+                        />
+                        <text x="450" y="92" fill="#1E2C3D" font-weight="600">
+                          3y
+                        </text>
+
+                        <text x="160" y="132" text-anchor="end">
+                          Government &amp; CRM
+                        </text>
+                        <rect
+                          x="170"
+                          y="118"
+                          width="90"
+                          height="20"
+                          rx="4"
+                          fill="#3D8FF5"
+                          opacity="0.65"
+                        />
+                        <text x="450" y="132" fill="#2A6FD1" font-weight="600">
+                          1.5y
+                        </text>
+
+                        <text x="160" y="172" text-anchor="end">
+                          Mobile &amp; Cloud
+                        </text>
+                        <rect
+                          x="170"
+                          y="158"
+                          width="60"
+                          height="20"
+                          rx="4"
+                          fill="#2E4258"
+                          opacity="0.75"
+                        />
+                        <text x="450" y="172" fill="#1E2C3D" font-weight="600">
+                          1y
+                        </text>
+                      </g>
+                    </svg>
+                    <div class="chart-legend">
+                      <span class="chart-legend-item"
+                        ><i style="background: #3d8ff5"></i> Workflow / SaaS
+                        platforms</span
+                      >
+                      <span class="chart-legend-item"
+                        ><i style="background: #2e4258"></i> Regulated finance
+                        &amp; infra</span
+                      >
+                    </div>
+                  </div>
+                </article>
+
+                <!-- <article class="carousel-slide" aria-roledescription="slide" aria-label="3 of 4: Multi-database portability">
+              <svg viewBox="0 0 420 340" width="100%" role="img" aria-labelledby="diagramTitle">
+                <title id="diagramTitle">Diagram: Oracle, MSSQL and PostgreSQL converging into one portable codebase, powering enterprise clients</title>
+                <defs>
+                  <linearGradient id="lineFade" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0" stop-color="#3D8FF5" stop-opacity="0.15"/>
+                    <stop offset="1" stop-color="#3D8FF5" stop-opacity="0.65"/>
+                  </linearGradient>
+                </defs>
+                <path d="M78 76 C 150 76, 150 168, 208 168" stroke="url(#lineFade)" stroke-width="1.5" fill="none"/>
+                <path d="M78 168 C 150 168, 150 168, 208 168" stroke="url(#lineFade)" stroke-width="1.5" fill="none"/>
+                <path d="M78 260 C 150 260, 150 168, 208 168" stroke="url(#lineFade)" stroke-width="1.5" fill="none"/>
+                <path d="M248 168 L 340 168" stroke="#1E2C3D" stroke-width="1.5"/>
+                <path d="M340 168 L 320 156" stroke="#1E2C3D" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M340 168 L 320 180" stroke="#1E2C3D" stroke-width="1.5" stroke-linecap="round"/>
+      
+                <g font-family="IBM Plex Mono, monospace" font-size="11">
+                  <circle cx="60" cy="76" r="18" fill="#fff" stroke="#C7CFD8"/>
+                  <text x="60" y="80" text-anchor="middle" fill="#2E4258" font-weight="600">OR</text>
+                  <text x="60" y="106" text-anchor="middle" fill="#8A93A0" font-size="10">Oracle</text>
+      
+                  <circle cx="60" cy="168" r="18" fill="#fff" stroke="#C7CFD8"/>
+                  <text x="60" y="172" text-anchor="middle" fill="#2E4258" font-weight="600">MS</text>
+                  <text x="60" y="198" text-anchor="middle" fill="#8A93A0" font-size="10">MSSQL</text>
+      
+                  <circle cx="60" cy="260" r="18" fill="#fff" stroke="#C7CFD8"/>
+                  <text x="60" y="264" text-anchor="middle" fill="#2E4258" font-weight="600">PG</text>
+                  <text x="60" y="290" text-anchor="middle" fill="#8A93A0" font-size="10">PostgreSQL</text>
+      
+                  <rect x="208" y="138" width="90" height="60" rx="8" fill="#1E2C3D"/>
+                  <text x="253" y="164" text-anchor="middle" fill="#fff" font-weight="600" font-size="11">SINGLE</text>
+                  <text x="253" y="180" text-anchor="middle" fill="#fff" font-weight="600" font-size="11">CODEBASE</text>
+      
+                  <rect x="346" y="146" width="64" height="44" rx="7" fill="#fff" stroke="#3D8FF5" stroke-width="1.5"/>
+                  <text x="378" y="164" text-anchor="middle" fill="#2E4258" font-size="9.5" font-weight="600">CLIENT</text>
+                  <text x="378" y="178" text-anchor="middle" fill="#2E4258" font-size="9.5" font-weight="600">A&nbsp;&mdash;&nbsp;N</text>
+                </g>
+              </svg>
+              <p class="diagram-caption">// one Spring&nbsp;Boot / JPA codebase, three database engines</p>
+            </article> -->
+
+                <article
+                  class="carousel-slide"
+                  aria-roledescription="slide"
+                  aria-label="4 of 4: Multi-database architecture"
+                >
+                  <div class="chart-card">
+                    <div class="chart-card-head">
+                      <h4>Multi-database portability</h4>
+                      <span>One codebase</span>
+                    </div>
+                    <div class="chart-card-content">
+                      <svg
+                        viewBox="0 0 520 230"
+                        width="40%"
+                        role="img"
+                        aria-label="Donut chart: Oracle, MSSQL and PostgreSQL each supporting a unified Spring Boot codebase"
+                      >
+                        <circle
+                          cx="175"
+                          cy="118"
+                          r="72"
+                          fill="none"
+                          stroke="#EBEEF2"
+                          stroke-width="22"
+                        />
+                        <circle
+                          cx="175"
+                          cy="118"
+                          r="72"
+                          fill="none"
+                          stroke="#3D8FF5"
+                          stroke-width="22"
+                          stroke-dasharray="150.8 301.6"
+                          transform="rotate(-90 175 118)"
+                        />
+                        <circle
+                          cx="175"
+                          cy="118"
+                          r="72"
+                          fill="none"
+                          stroke="#2E4258"
+                          stroke-width="22"
+                          stroke-dasharray="150.8 301.6"
+                          stroke-dashoffset="-150.8"
+                          transform="rotate(-90 175 118)"
+                        />
+                        <circle
+                          cx="175"
+                          cy="118"
+                          r="72"
+                          fill="none"
+                          stroke="#3D8FF5"
+                          stroke-width="22"
+                          stroke-dasharray="150.8 301.6"
+                          stroke-dashoffset="-301.6"
+                          opacity="0.55"
+                          transform="rotate(-90 175 118)"
+                        />
+                        <text
+                          x="175"
+                          y="114"
+                          text-anchor="middle"
+                          font-family="IBM Plex Mono, monospace"
+                          font-size="22"
+                          font-weight="600"
+                          fill="#1E2C3D"
+                        >
+                          3-in-1
+                        </text>
+                        <text
+                          x="175"
+                          y="136"
+                          text-anchor="middle"
+                          font-family="IBM Plex Mono, monospace"
+                          font-size="10"
+                          fill="#8A93A0"
+                        >
+                          DB ENGINES
+                        </text>
+                        <g
+                          font-family="IBM Plex Mono, monospace"
+                          font-size="12"
+                          fill="#5B6572"
+                        >
+                          <circle cx="330" cy="78" r="5" fill="#3D8FF5" />
+                          <text x="344" y="82">Oracle</text>
+                          <circle cx="330" cy="118" r="5" fill="#2E4258" />
+                          <text x="344" y="122">Microsoft SQL Server</text>
+                          <circle
+                            cx="330"
+                            cy="158"
+                            r="5"
+                            fill="#3D8FF5"
+                            opacity="0.55"
+                          />
+                          <text x="344" y="162">PostgreSQL</text>
+                        </g>
+                      </svg>
+
+                      <svg
+                        viewBox="0 0 420 340"
+                        width="50%"
+                        role="img"
+                        aria-label="Diagram: Oracle, MSSQL and PostgreSQL converging into one portable codebase, powering enterprise clients"
+                      >
+                        <title id="diagramTitle">
+                          Diagram: Oracle, MSSQL and PostgreSQL converging into
+                          one portable codebase, powering enterprise clients
+                        </title>
+                        <defs>
+                          <linearGradient
+                            id="lineFade"
+                            x1="0"
+                            y1="0"
+                            x2="1"
+                            y2="0"
+                          >
+                            <stop
+                              offset="0"
+                              stop-color="#3D8FF5"
+                              stop-opacity="0.15"
+                            />
+                            <stop
+                              offset="1"
+                              stop-color="#3D8FF5"
+                              stop-opacity="0.65"
+                            />
+                          </linearGradient>
+                        </defs>
+                        <!-- connecting lines -->
+                        <path
+                          d="M78 76 C 150 76, 150 168, 208 168"
+                          stroke="url(#lineFade)"
+                          stroke-width="1.5"
+                          fill="none"
+                        />
+                        <path
+                          d="M78 168 C 150 168, 150 168, 208 168"
+                          stroke="url(#lineFade)"
+                          stroke-width="1.5"
+                          fill="none"
+                        />
+                        <path
+                          d="M78 260 C 150 260, 150 168, 208 168"
+                          stroke="url(#lineFade)"
+                          stroke-width="1.5"
+                          fill="none"
+                        />
+                        <path
+                          d="M248 168 L 340 168"
+                          stroke="#1E2C3D"
+                          stroke-width="1.5"
+                        />
+                        <path
+                          d="M340 168 L 320 156"
+                          stroke="#1E2C3D"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                        />
+                        <path
+                          d="M340 168 L 320 180"
+                          stroke="#1E2C3D"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                        />
+
+                        <!-- db nodes -->
+                        <g
+                          font-family="IBM Plex Mono, monospace"
+                          font-size="11"
+                        >
+                          <circle
+                            cx="60"
+                            cy="76"
+                            r="18"
+                            fill="#fff"
+                            stroke="#C7CFD8"
+                          />
+                          <text
+                            x="60"
+                            y="80"
+                            text-anchor="middle"
+                            fill="#2E4258"
+                            font-weight="600"
+                          >
+                            OR
+                          </text>
+                          <text
+                            x="60"
+                            y="106"
+                            text-anchor="middle"
+                            fill="#8A93A0"
+                            font-size="10"
+                          >
+                            Oracle
+                          </text>
+
+                          <circle
+                            cx="60"
+                            cy="168"
+                            r="18"
+                            fill="#fff"
+                            stroke="#C7CFD8"
+                          />
+                          <text
+                            x="60"
+                            y="172"
+                            text-anchor="middle"
+                            fill="#2E4258"
+                            font-weight="600"
+                          >
+                            MS
+                          </text>
+                          <text
+                            x="60"
+                            y="198"
+                            text-anchor="middle"
+                            fill="#8A93A0"
+                            font-size="10"
+                          >
+                            MSSQL
+                          </text>
+
+                          <circle
+                            cx="60"
+                            cy="260"
+                            r="18"
+                            fill="#fff"
+                            stroke="#C7CFD8"
+                          />
+                          <text
+                            x="60"
+                            y="264"
+                            text-anchor="middle"
+                            fill="#2E4258"
+                            font-weight="600"
+                          >
+                            PG
+                          </text>
+                          <text
+                            x="60"
+                            y="290"
+                            text-anchor="middle"
+                            fill="#8A93A0"
+                            font-size="10"
+                          >
+                            PostgreSQL
+                          </text>
+
+                          <!-- central node -->
+                          <rect
+                            x="208"
+                            y="138"
+                            width="90"
+                            height="60"
+                            rx="8"
+                            fill="#1E2C3D"
+                          />
+                          <text
+                            x="253"
+                            y="164"
+                            text-anchor="middle"
+                            fill="#fff"
+                            font-weight="600"
+                            font-size="11"
+                          >
+                            SINGLE
+                          </text>
+                          <text
+                            x="253"
+                            y="180"
+                            text-anchor="middle"
+                            fill="#fff"
+                            font-weight="600"
+                            font-size="11"
+                          >
+                            CODEBASE
+                          </text>
+
+                          <!-- output node -->
+                          <rect
+                            x="346"
+                            y="146"
+                            width="64"
+                            height="44"
+                            rx="7"
+                            fill="#fff"
+                            stroke="#3D8FF5"
+                            stroke-width="1.5"
+                          />
+                          <text
+                            x="378"
+                            y="164"
+                            text-anchor="middle"
+                            fill="#2E4258"
+                            font-size="9.5"
+                            font-weight="600"
+                          >
+                            CLIENT
+                          </text>
+                          <text
+                            x="378"
+                            y="178"
+                            text-anchor="middle"
+                            fill="#2E4258"
+                            font-size="9.5"
+                            font-weight="600"
+                          >
+                            A&nbsp;&mdash;&nbsp;N
+                          </text>
+                        </g>
+                      </svg>
+                    </div>
+                    <p class="chart-note">
+                      // signature architecture from Intalio CTS and enterprise
+                      client portability work
+                    </p>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <div
+              class="carousel-dots"
+              id="carousel-dots"
+              aria-hidden="true"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACHIEVEMENTS -->
+      <section class="section" id="achievements">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">Key Achievements</p>
+            <h2>What that experience has actually produced.</h2>
+          </div>
+          <div class="achv-grid reveal">
+            <div class="achv-card">
+              <div class="achv-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <ellipse cx="12" cy="5" rx="8" ry="3" />
+                  <path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5" />
+                  <path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3" />
+                </svg>
+              </div>
+              <div class="achv-metric">3-in-1</div>
+              <div class="achv-title">Multi-database portability</div>
+              <p class="achv-desc">
+                Built a unified codebase compatible with Oracle, Microsoft SQL
+                Server and PostgreSQL, so one platform could serve every
+                enterprise client.
+              </p>
+            </div>
+            <div class="achv-card">
+              <div class="achv-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="7" height="7" rx="1" />
+                  <rect x="14" y="3" width="7" height="7" rx="1" />
+                  <rect x="14" y="14" width="7" height="7" rx="1" />
+                  <path d="M10 6.5h4M17.5 10v4" />
+                </svg>
+              </div>
+              <div class="achv-metric">Metadata&#8209;driven</div>
+              <div class="achv-title">Workflow digitization</div>
+              <p class="achv-desc">
+                Built a dynamic, metadata-driven form engine that cut down how
+                long it took to deploy new business processes.
+              </p>
+            </div>
+            <div class="achv-card">
+              <div class="achv-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <div class="achv-metric">7+</div>
+              <div class="achv-title">Mentorship</div>
+              <p class="achv-desc">
+                Supervised a team of junior developers and personally mentored
+                seven interns at Talys Consulting.
+              </p>
+            </div>
+            <div class="achv-card">
+              <div class="achv-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z" />
+                </svg>
+              </div>
+              <div class="achv-metric">40%</div>
+              <div class="achv-title">Faster load times</div>
+              <p class="achv-desc">
+                Optimized database queries and caching strategy to cut page and
+                process load times by 40%.
+              </p>
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="tl-item">
-          <div class="tl-date">04/2024<br>10/2024</div>
-          <div class="tl-dot" aria-hidden="true"></div>
-          <div class="tl-card">
-            <div class="tl-head"><span class="tl-role">Sr. Full Stack Web Developer</span></div>
-            <div class="tl-company"><b>Teamwill</b> &middot; Fintech</div>
-            <p class="tl-desc">RESTful APIs powering car and equipment financing and leasing applications.</p>
-            <ul class="tl-highlights">
-              <li>Developed RESTful APIs using Java 22 for financing applications.</li>
-              <li>Integrated Camunda BPM to automate leasing process workflows.</li>
-              <li>Managed PostgreSQL database design, query optimization and performance tuning.</li>
-            </ul>
-            <div class="tl-tags">
-              <span class="tag">Java 22</span><span class="tag">RESTful APIs</span><span class="tag">Camunda BPM</span><span class="tag">PostgreSQL</span>
+      <!-- EXPERIENCE -->
+      <section class="section" id="experience">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">Experience</p>
+            <h2>
+              Six roles, one throughline: enterprise systems that have to work.
+            </h2>
+            <p>
+              From Android monitoring tools to core banking modules to the SaaS
+              platform he leads today.
+            </p>
+          </div>
+
+          <div class="timeline reveal">
+            <div class="tl-item">
+              <div class="tl-date">
+                12/2024<br /><span class="current">Present</span>
+              </div>
+              <div class="tl-dot" aria-hidden="true"></div>
+              <div class="tl-card">
+                <div class="tl-head">
+                  <span class="tl-role"
+                    >Technical Lead / Sr. Full Stack Developer</span
+                  >
+                  <span class="tl-badge">Current</span>
+                </div>
+                <div class="tl-company"><b>Intalio</b> &middot; Remote</div>
+                <p class="tl-desc">
+                  Lead Developer for CTS, a microservices-based enterprise
+                  workflow multi-tenant SaaS platform centralizing official
+                  communications.
+                </p>
+                <ul class="tl-highlights">
+                  <li>
+                    Designed complex domains using Spring Boot, JPA and
+                    Hibernate.
+                  </li>
+                  <li>
+                    Developed a multi-database strategy across Oracle, MSSQL and
+                    PostgreSQL to keep one codebase portable across enterprise
+                    clients.
+                  </li>
+                  <li>
+                    Built dynamic UI form builders and workflows with Vue
+                    Composition API and Vuex.
+                  </li>
+                </ul>
+                <div class="tl-tags">
+                  <span class="tag">Java</span
+                  ><span class="tag">Spring Boot</span
+                  ><span class="tag">JPA / Hibernate</span
+                  ><span class="tag">Vue.js</span
+                  ><span class="tag">Microservices</span
+                  ><span class="tag">SaaS</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tl-item">
+              <div class="tl-date">04/2024<br />10/2024</div>
+              <div class="tl-dot" aria-hidden="true"></div>
+              <div class="tl-card">
+                <div class="tl-head">
+                  <span class="tl-role">Sr. Full Stack Web Developer</span>
+                </div>
+                <div class="tl-company"><b>Teamwill</b> &middot; Fintech</div>
+                <p class="tl-desc">
+                  RESTful APIs powering car and equipment financing and leasing
+                  applications.
+                </p>
+                <ul class="tl-highlights">
+                  <li>
+                    Developed RESTful APIs using Java 22 for financing
+                    applications.
+                  </li>
+                  <li>
+                    Integrated Camunda BPM to automate leasing process
+                    workflows.
+                  </li>
+                  <li>
+                    Managed PostgreSQL database design, query optimization and
+                    performance tuning.
+                  </li>
+                </ul>
+                <div class="tl-tags">
+                  <span class="tag">Java 22</span
+                  ><span class="tag">RESTful APIs</span
+                  ><span class="tag">Camunda BPM</span
+                  ><span class="tag">PostgreSQL</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tl-item">
+              <div class="tl-date">05/2022<br />04/2024</div>
+              <div class="tl-dot" aria-hidden="true"></div>
+              <div class="tl-card">
+                <div class="tl-head">
+                  <span class="tl-role">Sr. Full Stack Web Developer</span>
+                </div>
+                <div class="tl-company"><b>Talys Consulting</b></div>
+                <p class="tl-desc">
+                  Architecture for a multi-tenant SaaS data-flow manager
+                  application.
+                </p>
+                <ul class="tl-highlights">
+                  <li>
+                    Designed the architecture for multiple modules of the data
+                    flow manager platform.
+                  </li>
+                  <li>
+                    Supervised a team of junior developers and mentored 7
+                    interns.
+                  </li>
+                  <li>
+                    Configured Jenkins and Docker pipelines for deployment on
+                    Linux servers.
+                  </li>
+                </ul>
+                <div class="tl-tags">
+                  <span class="tag">Architecture</span
+                  ><span class="tag">SaaS</span><span class="tag">Jenkins</span
+                  ><span class="tag">Docker</span><span class="tag">Linux</span
+                  ><span class="tag">Mentorship</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tl-item">
+              <div class="tl-date">06/2021<br />04/2022</div>
+              <div class="tl-dot" aria-hidden="true"></div>
+              <div class="tl-card">
+                <div class="tl-head">
+                  <span class="tl-role">Full Stack Web Developer</span>
+                </div>
+                <div class="tl-company"><b>Almaviva S.p.A</b></div>
+                <p class="tl-desc">
+                  Visa-processing CRM for the Italian Embassy, scaled across
+                  four countries.
+                </p>
+                <ul class="tl-highlights">
+                  <li>Built the visa-processing CRM end to end.</li>
+                  <li>
+                    Developed real-time notification channels using WebSockets
+                    (Sock.js).
+                  </li>
+                  <li>
+                    Optimized performance with Spring Cache and integrated
+                    third-party payment gateways.
+                  </li>
+                </ul>
+                <div class="tl-tags">
+                  <span class="tag">CRM</span><span class="tag">WebSockets</span
+                  ><span class="tag">Spring Cache</span
+                  ><span class="tag">Payments</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tl-item">
+              <div class="tl-date">11/2019<br />10/2020</div>
+              <div class="tl-dot" aria-hidden="true"></div>
+              <div class="tl-card">
+                <div class="tl-head">
+                  <span class="tl-role">Back End Java Developer</span>
+                </div>
+                <div class="tl-company"><b>BFI</b> &middot; Tunis, Tunisia</div>
+                <p class="tl-desc">
+                  IFRS reprocessing for a financial-accounting platform used by
+                  banks in 15+ African countries.
+                </p>
+                <ul class="tl-highlights">
+                  <li>
+                    Implemented IFRS reprocessing modules and optimized SQL/DB
+                    queries.
+                  </li>
+                  <li>
+                    Analyzed and transformed data from Informix, MS SQL Server
+                    and Excel; built ESB integrations across systems of record.
+                  </li>
+                  <li>
+                    Supported production clients including Gabon, Benin and
+                    Ivory Coast; documented transformation flows.
+                  </li>
+                </ul>
+                <div class="tl-tags">
+                  <span class="tag">Java</span><span class="tag">IFRS</span
+                  ><span class="tag">ESB</span><span class="tag">SQL</span
+                  ><span class="tag">Banking</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tl-item">
+              <div class="tl-date">02/2019<br />09/2020</div>
+              <div class="tl-dot" aria-hidden="true"></div>
+              <div class="tl-card">
+                <div class="tl-head">
+                  <span class="tl-role"
+                    >Android Developer &middot; End of Study Internship</span
+                  >
+                </div>
+                <div class="tl-company">
+                  <b>Advancia IT System</b> &middot; Tunis, Tunisia
+                </div>
+                <p class="tl-desc">
+                  Android monitoring app built from scratch, wired into
+                  real-time infrastructure metrics.
+                </p>
+                <ul class="tl-highlights">
+                  <li>
+                    Built an Android monitoring app and integrated Zabbix APIs
+                    via a Node.js backend.
+                  </li>
+                  <li>
+                    Provisioned and operated Azure infrastructure using
+                    Terraform.
+                  </li>
+                  <li>
+                    Delivered testing/debugging, version control and backend API
+                    deployment.
+                  </li>
+                </ul>
+                <div class="tl-tags">
+                  <span class="tag">Android</span
+                  ><span class="tag">Node.js</span><span class="tag">Azure</span
+                  ><span class="tag">Terraform</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="tl-item">
-          <div class="tl-date">05/2022<br>04/2024</div>
-          <div class="tl-dot" aria-hidden="true"></div>
-          <div class="tl-card">
-            <div class="tl-head"><span class="tl-role">Sr. Full Stack Web Developer</span></div>
-            <div class="tl-company"><b>Talys Consulting</b></div>
-            <p class="tl-desc">Architecture for a multi-tenant SaaS data-flow manager application.</p>
-            <ul class="tl-highlights">
-              <li>Designed the architecture for multiple modules of the data flow manager platform.</li>
-              <li>Supervised a team of junior developers and mentored 7 interns.</li>
-              <li>Configured Jenkins and Docker pipelines for deployment on Linux servers.</li>
-            </ul>
-            <div class="tl-tags">
-              <span class="tag">Architecture</span><span class="tag">SaaS</span><span class="tag">Jenkins</span><span class="tag">Docker</span><span class="tag">Linux</span><span class="tag">Mentorship</span>
+      <!-- SKILLS -->
+      <section class="section" id="skills">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">Skills</p>
+            <h2>The stack, grouped by what it's actually for.</h2>
+          </div>
+
+          <div class="skills-grid reveal">
+            <div class="skill-card">
+              <h3>Backend Engineering</h3>
+              <div class="skill-tags">
+                <span class="tag">Java</span><span class="tag">Spring Boot</span
+                ><span class="tag">JPA</span><span class="tag">Hibernate</span
+                ><span class="tag">RESTful APIs</span
+                ><span class="tag">Microservices</span
+                ><span class="tag">Node.js</span>
+              </div>
+            </div>
+            <div class="skill-card">
+              <h3>Frontend Engineering</h3>
+              <div class="skill-tags">
+                <span class="tag">Vue.js</span><span class="tag">Angular</span
+                ><span class="tag">TypeScript</span
+                ><span class="tag">JavaScript</span>
+              </div>
+            </div>
+            <div class="skill-card">
+              <h3>Data</h3>
+              <div class="skill-tags">
+                <span class="tag">PostgreSQL</span
+                ><span class="tag">Oracle</span><span class="tag">MSSQL</span
+                ><span class="tag">MySQL</span><span class="tag">MongoDB</span
+                ><span class="tag">Redis</span
+                ><span class="tag">Elasticsearch</span
+                ><span class="tag">Kafka</span>
+              </div>
+            </div>
+            <div class="skill-card">
+              <h3>Cloud &amp; Delivery</h3>
+              <div class="skill-tags">
+                <span class="tag">Docker</span><span class="tag">Jenkins</span
+                ><span class="tag">Git</span><span class="tag">AWS</span
+                ><span class="tag">Azure</span><span class="tag">Terraform</span
+                ><span class="tag">Linux</span>
+              </div>
+            </div>
+            <div class="skill-card">
+              <h3>Enterprise</h3>
+              <div class="skill-tags">
+                <span class="tag">Camunda</span
+                ><span class="tag">JasperReports</span
+                ><span class="tag">Aspose</span><span class="tag">JointJS</span
+                ><span class="tag">SaaS</span>
+              </div>
+            </div>
+            <div class="skill-card">
+              <h3>Emerging Tech</h3>
+              <div class="skill-tags">
+                <span class="tag">LLaMA</span>
+              </div>
+              <p class="skill-note">
+                Exploratory exposure &mdash; not a claim of production AI/ML
+                delivery.
+              </p>
+            </div>
+          </div>
+
+          <div class="meta-row reveal">
+            <div class="meta-card">
+              <h3>Education</h3>
+              <div class="edu-degree">
+                Bachelor's Degree in Computer Science
+              </div>
+              <div class="edu-school">Time University &mdash; Tunisia</div>
+              <div class="edu-period">2016 &mdash; 2019</div>
+            </div>
+            <div class="meta-card">
+              <h3>Languages</h3>
+              <div class="lang-row"><span>Arabic</span><span>Native</span></div>
+              <div class="lang-row">
+                <span>French</span><span>Bilingual</span>
+              </div>
+              <div class="lang-row">
+                <span>English</span><span>Advanced</span>
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="tl-item">
-          <div class="tl-date">06/2021<br>04/2022</div>
-          <div class="tl-dot" aria-hidden="true"></div>
-          <div class="tl-card">
-            <div class="tl-head"><span class="tl-role">Full Stack Web Developer</span></div>
-            <div class="tl-company"><b>Almaviva S.p.A</b></div>
-            <p class="tl-desc">Visa-processing CRM for the Italian Embassy, scaled across four countries.</p>
-            <ul class="tl-highlights">
-              <li>Built the visa-processing CRM end to end.</li>
-              <li>Developed real-time notification channels using WebSockets (Sock.js).</li>
-              <li>Optimized performance with Spring Cache and integrated third-party payment gateways.</li>
-            </ul>
-            <div class="tl-tags">
-              <span class="tag">CRM</span><span class="tag">WebSockets</span><span class="tag">Spring Cache</span><span class="tag">Payments</span>
+      <!-- CONTACT -->
+      <section class="section contact-section" id="contact">
+        <div class="container">
+          <div class="contact-inner reveal">
+            <p class="eyebrow">Contact</p>
+            <h2>Let's build something valuable.</h2>
+            <p>
+              Available for senior software engineering, technical leadership,
+              and B2B / remote opportunities.
+            </p>
+            <div class="contact-actions">
+              <a
+                class="btn btn-accent"
+                href="mailto:hamdi.bennosra.dev@gmail.com"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="m22 6-10 7L2 6" />
+                </svg>
+                Email me
+              </a>
+              <a
+                class="btn btn-ghost"
+                href="https://wa.me/21628997109"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Contact Hamdi Ben Nosra on WhatsApp"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                  />
+                </svg>
+                WhatsApp
+              </a>
+              <a
+                class="btn btn-ghost"
+                href="https://www.linkedin.com/in/hamdi-ben-nosra"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                  />
+                  <path d="M15 3h6v6" />
+                  <path d="M10 14 21 3" />
+                </svg>
+                LinkedIn
+              </a>
+              <a
+                class="btn btn-ghost"
+                id="cv-btn-contact"
+                href="HBN%20-%20CV.pdf"
+                download="HBN - CV.pdf"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 3v12" />
+                  <path d="m7 10 5 5 5-5" />
+                  <path d="M5 21h14" />
+                </svg>
+                Download CV
+              </a>
+            </div>
+            <div class="contact-direct">
+              <a href="mailto:hamdi.bennosra.dev@gmail.com"
+                >hamdi.bennosra.dev@gmail.com</a
+              >
+              <a
+                href="https://wa.me/21628997109"
+                target="_blank"
+                rel="noopener noreferrer"
+                >+216 28 997 109</a
+              >
+              <a
+                href="https://www.linkedin.com/in/hamdi-ben-nosra"
+                target="_blank"
+                rel="noopener noreferrer"
+                >linkedin.com/in/hamdi-ben-nosra</a
+              >
             </div>
           </div>
         </div>
+      </section>
+    </main>
 
-        <div class="tl-item">
-          <div class="tl-date">11/2019<br>10/2020</div>
-          <div class="tl-dot" aria-hidden="true"></div>
-          <div class="tl-card">
-            <div class="tl-head"><span class="tl-role">Back End Java Developer</span></div>
-            <div class="tl-company"><b>BFI</b> &middot; Tunis, Tunisia</div>
-            <p class="tl-desc">IFRS reprocessing for a financial-accounting platform used by banks in 15+ African countries.</p>
-            <ul class="tl-highlights">
-              <li>Implemented IFRS reprocessing modules and optimized SQL/DB queries.</li>
-              <li>Analyzed and transformed data from Informix, MS SQL Server and Excel; built ESB integrations across systems of record.</li>
-              <li>Supported production clients including Gabon, Benin and Ivory Coast; documented transformation flows.</li>
-            </ul>
-            <div class="tl-tags">
-              <span class="tag">Java</span><span class="tag">IFRS</span><span class="tag">ESB</span><span class="tag">SQL</span><span class="tag">Banking</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="tl-item">
-          <div class="tl-date">02/2019<br>09/2020</div>
-          <div class="tl-dot" aria-hidden="true"></div>
-          <div class="tl-card">
-            <div class="tl-head"><span class="tl-role">Android Developer &middot; End of Study Internship</span></div>
-            <div class="tl-company"><b>Advancia IT System</b> &middot; Tunis, Tunisia</div>
-            <p class="tl-desc">Android monitoring app built from scratch, wired into real-time infrastructure metrics.</p>
-            <ul class="tl-highlights">
-              <li>Built an Android monitoring app and integrated Zabbix APIs via a Node.js backend.</li>
-              <li>Provisioned and operated Azure infrastructure using Terraform.</li>
-              <li>Delivered testing/debugging, version control and backend API deployment.</li>
-            </ul>
-            <div class="tl-tags">
-              <span class="tag">Android</span><span class="tag">Node.js</span><span class="tag">Azure</span><span class="tag">Terraform</span>
-            </div>
-          </div>
-        </div>
-
+    <footer class="site-footer">
+      <div class="container">
+        <span>&copy; <span id="year"></span> Hamdi Ben Nosra</span>
+        <span class="footer-comment"
+          >// static site &middot; no backend, no database</span
+        >
       </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- SKILLS -->
-  <section class="section" id="skills">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">Skills</p>
-        <h2>The stack, grouped by what it's actually for.</h2>
-      </div>
+    <script>
+      (function () {
+        "use strict";
 
-      <div class="skills-grid reveal">
-        <div class="skill-card">
-          <h3>Backend Engineering</h3>
-          <div class="skill-tags">
-            <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">JPA</span><span class="tag">Hibernate</span><span class="tag">RESTful APIs</span><span class="tag">Microservices</span><span class="tag">Node.js</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h3>Frontend Engineering</h3>
-          <div class="skill-tags">
-            <span class="tag">Vue.js</span><span class="tag">Angular</span><span class="tag">TypeScript</span><span class="tag">JavaScript</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h3>Data</h3>
-          <div class="skill-tags">
-            <span class="tag">PostgreSQL</span><span class="tag">Oracle</span><span class="tag">MSSQL</span><span class="tag">MySQL</span><span class="tag">MongoDB</span><span class="tag">Redis</span><span class="tag">Elasticsearch</span><span class="tag">Kafka</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h3>Cloud &amp; Delivery</h3>
-          <div class="skill-tags">
-            <span class="tag">Docker</span><span class="tag">Jenkins</span><span class="tag">Git</span><span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">Terraform</span><span class="tag">Linux</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h3>Enterprise</h3>
-          <div class="skill-tags">
-            <span class="tag">Camunda</span><span class="tag">JasperReports</span><span class="tag">Aspose</span><span class="tag">JointJS</span><span class="tag">SaaS</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h3>Emerging Tech</h3>
-          <div class="skill-tags">
-            <span class="tag">LLaMA</span>
-          </div>
-          <p class="skill-note">Exploratory exposure &mdash; not a claim of production AI/ML delivery.</p>
-        </div>
-      </div>
+        document.getElementById("year").textContent = new Date().getFullYear();
 
-      <div class="meta-row reveal">
-        <div class="meta-card">
-          <h3>Education</h3>
-          <div class="edu-degree">Bachelor's Degree in Computer Science</div>
-          <div class="edu-school">Time University &mdash; Tunisia</div>
-          <div class="edu-period">2016 &mdash; 2019</div>
-        </div>
-        <div class="meta-card">
-          <h3>Languages</h3>
-          <div class="lang-row"><span>Arabic</span><span>Native</span></div>
-          <div class="lang-row"><span>French</span><span>Bilingual</span></div>
-          <div class="lang-row"><span>English</span><span>Advanced</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
+        // about charts carousel
+        var track = document.getElementById("carousel-track");
+        var dotsWrap = document.getElementById("carousel-dots");
+        var prevBtn = document.getElementById("carousel-prev");
+        var nextBtn = document.getElementById("carousel-next");
+        if (track && dotsWrap && prevBtn && nextBtn) {
+          var total = track.children.length;
+          var index = 0;
 
-  <!-- CONTACT -->
-  <section class="section contact-section" id="contact">
-    <div class="container">
-      <div class="contact-inner reveal">
-        <p class="eyebrow">Contact</p>
-        <h2>Let's build something valuable.</h2>
-        <p>Available for senior software engineering, technical leadership, and B2B / remote opportunities.</p>
-        <div class="contact-actions">
-          <a class="btn btn-accent" href="mailto:hamdi.bennosra.dev@gmail.com">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
-            Email me
-          </a>
-          <a class="btn btn-ghost" href="https://wa.me/21628997109" target="_blank" rel="noopener noreferrer" aria-label="Contact Hamdi Ben Nosra on WhatsApp">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            WhatsApp
-          </a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/hamdi-ben-nosra" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
-            LinkedIn
-          </a>
-          <a class="btn btn-ghost" id="cv-btn-contact" href="HBN%20-%20CV.pdf" download="HBN - CV.pdf">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
-            Download CV
-          </a>
-        </div>
-        <div class="contact-direct">
-          <a href="mailto:hamdi.bennosra.dev@gmail.com">hamdi.bennosra.dev@gmail.com</a>
-          <a href="https://wa.me/21628997109" target="_blank" rel="noopener noreferrer">+216 28 997 109</a>
-          <a href="https://www.linkedin.com/in/hamdi-ben-nosra" target="_blank" rel="noopener noreferrer">linkedin.com/in/hamdi-ben-nosra</a>
-        </div>
-      </div>
-    </div>
-  </section>
+          for (var d = 0; d < total; d++) {
+            var dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "carousel-dot" + (d === 0 ? " is-active" : "");
+            dot.setAttribute("aria-label", "Go to chart " + (d + 1));
+            (function (i) {
+              dot.addEventListener("click", function () {
+                goTo(i);
+              });
+            })(d);
+            dotsWrap.appendChild(dot);
+          }
 
-</main>
+          function goTo(i) {
+            index = (i + total) % total;
+            track.style.transform = "translateX(-" + index * 100 + "%)";
+            Array.prototype.forEach.call(dotsWrap.children, function (dot, di) {
+              dot.classList.toggle("is-active", di === index);
+            });
+          }
 
-<footer class="site-footer">
-  <div class="container">
-    <span>&copy; <span id="year"></span> Hamdi Ben Nosra</span>
-    <span class="footer-comment">// static site &middot; no backend, no database</span>
-  </div>
-</footer>
-
-<script>
-(function(){
-  "use strict";
-
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // about charts carousel
-  var track = document.getElementById('carousel-track');
-  var dotsWrap = document.getElementById('carousel-dots');
-  var prevBtn = document.getElementById('carousel-prev');
-  var nextBtn = document.getElementById('carousel-next');
-  if(track && dotsWrap && prevBtn && nextBtn){
-    var total = track.children.length;
-    var index = 0;
-
-    for(var d = 0; d < total; d++){
-      var dot = document.createElement('button');
-      dot.type = 'button';
-      dot.className = 'carousel-dot' + (d === 0 ? ' is-active' : '');
-      dot.setAttribute('aria-label', 'Go to chart ' + (d + 1));
-      (function(i){
-        dot.addEventListener('click', function(){ goTo(i); });
-      })(d);
-      dotsWrap.appendChild(dot);
-    }
-
-    function goTo(i){
-      index = (i + total) % total;
-      track.style.transform = 'translateX(-' + (index * 100) + '%)';
-      Array.prototype.forEach.call(dotsWrap.children, function(dot, di){
-        dot.classList.toggle('is-active', di === index);
-      });
-    }
-
-    prevBtn.addEventListener('click', function(){ goTo(index - 1); });
-    nextBtn.addEventListener('click', function(){ goTo(index + 1); });
-  }
-
-
-
-  // mobile menu toggle
-  var toggle = document.getElementById('nav-toggle');
-  var menu = document.getElementById('mobile-menu');
-  function closeMenu(){
-    menu.classList.remove('open');
-    toggle.setAttribute('aria-expanded','false');
-  }
-  toggle.addEventListener('click', function(){
-    var open = menu.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-  menu.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', closeMenu);
-  });
-
-  // active nav link on scroll
-  var sections = ['about','experience','achievements','skills','contact']
-    .map(function(id){ return document.getElementById(id); })
-    .filter(Boolean);
-  var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
-
-  if('IntersectionObserver' in window){
-    var navObserver = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){
-          var id = entry.target.id;
-          links.forEach(function(l){
-            l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+          prevBtn.addEventListener("click", function () {
+            goTo(index - 1);
+          });
+          nextBtn.addEventListener("click", function () {
+            goTo(index + 1);
           });
         }
-      });
-    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
-    sections.forEach(function(s){ navObserver.observe(s); });
 
-    var revealObserver = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){
-          entry.target.classList.add('is-visible');
-          revealObserver.unobserve(entry.target);
+        // mobile menu toggle
+        var toggle = document.getElementById("nav-toggle");
+        var menu = document.getElementById("mobile-menu");
+        function closeMenu() {
+          menu.classList.remove("open");
+          toggle.setAttribute("aria-expanded", "false");
         }
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal:not(.is-visible)').forEach(function(el){
-      revealObserver.observe(el);
-    });
-  } else {
-    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('is-visible'); });
-  }
-})();
-</script>
+        toggle.addEventListener("click", function () {
+          var open = menu.classList.toggle("open");
+          toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+        menu.querySelectorAll("a").forEach(function (a) {
+          a.addEventListener("click", closeMenu);
+        });
 
-</body>
+        // active nav link on scroll
+        var sections = [
+          "about",
+          "experience",
+          "achievements",
+          "skills",
+          "contact",
+        ]
+          .map(function (id) {
+            return document.getElementById(id);
+          })
+          .filter(Boolean);
+        var links = Array.prototype.slice.call(
+          document.querySelectorAll(".nav-links a"),
+        );
+
+        if ("IntersectionObserver" in window) {
+          var navObserver = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  var id = entry.target.id;
+                  links.forEach(function (l) {
+                    l.classList.toggle(
+                      "active",
+                      l.getAttribute("href") === "#" + id,
+                    );
+                  });
+                }
+              });
+            },
+            { rootMargin: "-45% 0px -50% 0px", threshold: 0 },
+          );
+          sections.forEach(function (s) {
+            navObserver.observe(s);
+          });
+
+          var revealObserver = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("is-visible");
+                  revealObserver.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.12 },
+          );
+          document
+            .querySelectorAll(".reveal:not(.is-visible)")
+            .forEach(function (el) {
+              revealObserver.observe(el);
+            });
+        } else {
+          document.querySelectorAll(".reveal").forEach(function (el) {
+            el.classList.add("is-visible");
+          });
+        }
+      })();
+    </script>
+  </body>
 </html>
